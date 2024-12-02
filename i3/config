@@ -1,0 +1,167 @@
+# FUNCTIONAL SETTINGS
+# mod key, font
+set $mod Mod4
+font pango:Terminus 10
+
+# STARTUP: i3, polybar
+exec --no-startup-id dex --autostart --environment i3
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+# bar {
+#         status_command i3blocks
+# }
+
+# wallpaper
+# exec_always --no-startup-id feh --bg-fill --randomize ~/Pictures/Wallpapers/SU/*
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/adastra3.png
+
+# use only second monitor
+exec_always --no-startup-id ~/.config/i3/monitor-switch.sh
+
+# brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym XF86Mail exec ~/.config/polybar/blocks/scripts/ddcutil.sh down 20
+bindsym XF86HomePage exec ~/.config/polybar/blocks/scripts/ddcutil.sh up 20
+
+# lock the screen and dont make my screen black, hoe
+set $lockscript ~/.config/i3/lockscript.sh
+bindsym $mod+l exec --no-startup-id "sh $lockscript"
+exec --no-startup-id sh -c "sleep 5 && xautolock -time 10 -detectsleep -locker 'sh $lockscript'"
+exec_always --no-startup-id sh -c "sleep 1 && xset s off && sleep 1 && xset -dpms && sleep 1 && xset s noblank"
+
+# turn off pc
+bindsym $mod+Shift+x exec --no-startup-id ~/.config/polybar/blocks/scripts/powermenu.sh &
+
+# change keyboard
+exec_always --no-startup-id setxkbmap -layout us,rs,rs -variant ,latin, -option 'grp:win_space_toggle'
+
+# audio control
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioStop exec --no-startup-id playerctl stop
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+
+# screenshots
+bindsym End exec --no-startup-id maim --hidecursor ~/Pictures/Screenshots/$(date +%Y-%b-%d-%H-%M-%S | tr A-Z a-z).png
+bindsym Shift+End exec --no-startup-id maim --window $(xdotool getactivewindow) ~/Pictures/Screenshots/$(date +%Y-%b-%d-%H-%M-%S | tr A-Z a-z).png
+bindsym $mod+End exec --no-startup-id maim --select ~/Pictures/Screenshots/$(date +%Y-%b-%d-%H-%M-%S | tr A-Z a-z).png
+
+# terminal
+bindsym $mod+Return exec kitty
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# launch apps
+bindsym $mod+d exec --no-startup-id dmenu_run
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
+
+# split horizontaly or vertiacly
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+# toggle tiling / floating
+bindsym $mod+Shift+e floating toggle
+
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+tiling_drag modifier titlebar
+
+# define names for default workspaces for which we configure key bindings later on.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
+mode "resize" {
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+# VISUAL SETTINGS
+# colors
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
+set $lightgray #bdae93
+
+# class                 border|backgr|text|indicator|child_border
+client.focused          $blue $blue $bg $purple $darkgray
+client.focused_inactive $darkgray $darkgray $lightgray $purple $darkgray
+client.unfocused        $darkgray $darkgray $lightgray $purple $darkgray
+client.urgent           $red $red $white $red $red
+
+# gaps
+gaps inner 5
+smart_gaps on

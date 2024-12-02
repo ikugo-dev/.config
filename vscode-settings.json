@@ -1,0 +1,46 @@
+/* ---------------------------------- font ---------------------------------- */
+// "editor.inlayHints.enabled": "offUnlessPressed",
+// "workbench.colorCustomizations": {
+//   "editorCursor.foreground": "#979c85",
+//   "editorCursor.background": "#141727"
+// },
+"window.zoomLevel": 2,
+"editor.fontSize": 18,
+"editor.fontFamily": "'Hurmit Nerd Font', 'DinaRemaster'",
+// "editor.fontFamily": "'DinaRemasterII'",
+// "editor.fontWeight": "bold",
+"editor.fontLigatures": true,
+"editor.selectionClipboard": false,
+"terminal.integrated.fontSize": 17,
+/* ----------------------------- file behaviour ----------------------------- */
+"workbench.tree.indent": 10,
+"explorer.confirmDragAndDrop": false,
+"security.workspace.trust.enabled": false,
+"files.autoSave": "afterDelay",
+"editor.cursorSurroundingLines": 6,
+"editor.stickyScroll.enabled": false,
+/* ----------------------------- editor visuals ----------------------------- */
+"editor.minimap.enabled": false,
+"breadcrumbs.enabled": false,
+"editor.guides.bracketPairs": true,
+"workbench.statusBar.visible": false,
+"workbench.startupEditor": "none",
+"window.titleBarStyle": "custom",
+"window.commandCenter": false,
+"workbench.activityBar.location": "hidden",
+"workbench.colorTheme": "Gruvbox Dark Soft",
+"workbench.panel.defaultLocation": "right",
+"accessibility.dimUnfocused.enabled": true,
+"accessibility.dimUnfocused.opacity": 0.6,
+"zenMode.hideLineNumbers": false,
+"workbench.editor.tabSizing": "fixed",
+"workbench.editor.tabSizingFixedMaxWidth": 120,
+"editor.cursorStyle": "block",
+"editor.rulers": [
+    80
+],
+"explorer.confirmDelete": false,
+/* ----------------------------------- cpp ---------------------------------- */
+"C_Cpp.default.cppStandard": "c++23",
+"C_Cpp.autocompleteAddParentheses": true
+}
