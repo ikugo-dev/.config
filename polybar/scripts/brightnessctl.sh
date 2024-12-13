@@ -9,4 +9,4 @@ elif [ $BRIGHTNESS_NR -lt 70 ]; then
 else
     BRIGHTNESS_ICON=''
 fi
-echo "%{B#E57C46} $BRIGHTNESS_ICON %{B-} $BRIGHTNESS_VALUE"
+echo "%{B#57C7FF}%{F#282A36} $BRIGHTNESS_ICON %{F-}%{B-} $BRIGHTNESS_VALUE"

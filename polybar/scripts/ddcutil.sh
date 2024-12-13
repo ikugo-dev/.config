@@ -32,5 +32,3 @@ fi
 
 # Set new brightness
 ddcutil setvcp 10 "$new_brightness" && echo "$new_brightness" >"$cache_file"
-
-# echo "Brightness set to $new_brightness%"
