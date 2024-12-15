@@ -13,4 +13,4 @@ if [ "$select" = "NO" ]; then
     exit 0
 fi
 
-i3-msg exit
+systemctl poweroff
