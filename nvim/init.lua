@@ -8,6 +8,8 @@ require('keymaps')
 -- custom theme
 local snazzy_theme = vim.fn.stdpath('config') .. '/snazzy.vim'
 vim.cmd('source ' .. snazzy_theme)
+local star_search = vim.fn.stdpath('config') .. '/star_search.vim'
+vim.cmd('source ' .. star_search)
 
 -- scrolling limit 
 vim.o.scrolloff = 8
