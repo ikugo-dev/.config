@@ -41,6 +41,7 @@ Plug('hrsh7th/nvim-cmp')
 Plug('hrsh7th/cmp-nvim-lsp')
 Plug('L3MON4D3/LuaSnip')
 Plug('lukas-reineke/indent-blankline.nvim')
+Plug('mfussenegger/nvim-jdtls')
 
 vim.call('plug#end')
 
@@ -117,3 +118,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     vim.lsp.buf.format({ async = false })
   end,
 })
+
+-- java
+local config = {
+  cmd = { "/home/alex/.local/share/nvim/mason/bin/jdtls" },
+  root_dir = require('jdtls.setup').find_root({ 'gradlew', '.git', 'mvnw' }),
+}
+require('jdtls').start_or_attach(config)
