@@ -41,4 +41,3 @@ cmp.setup({
     { name = 'path' },     -- File path completions
   },
 })
-

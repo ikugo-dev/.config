@@ -18,6 +18,7 @@ vim.o.sidescrolloff = 8
 -- line numbers
 vim.opt.relativenumber = true
 vim.opt.number = true
+vim.opt.colorcolumn = "100"
 
 -- tab bullshit
 vim.opt.expandtab = true
@@ -32,7 +33,6 @@ vim.opt.clipboard = "unnamedplus"
 local Plug = vim.fn['plug#']
 
 vim.call('plug#begin')
-
 Plug('stevearc/oil.nvim')
 Plug('neovim/nvim-lspconfig')
 Plug('williamboman/mason.nvim')
@@ -41,7 +41,9 @@ Plug('hrsh7th/nvim-cmp')
 Plug('hrsh7th/cmp-nvim-lsp')
 Plug('L3MON4D3/LuaSnip')
 Plug('lukas-reineke/indent-blankline.nvim')
-Plug('mfussenegger/nvim-jdtls')
+-- language specific plugins
+Plug('mfussenegger/nvim-jdtls') -- java
+Plug('elixir-editors/vim-elixir') -- elixir
 
 vim.call('plug#end')
 
@@ -120,8 +122,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 -- java
-local config = {
-  cmd = { "/home/alex/.local/share/nvim/mason/bin/jdtls" },
-  root_dir = require('jdtls.setup').find_root({ 'gradlew', '.git', 'mvnw' }),
-}
-require('jdtls').start_or_attach(config)
+-- local config = {
+--   cmd = { "/home/alex/.local/share/nvim/mason/bin/jdtls" },
+--   root_dir = require('jdtls.setup').find_root({ 'gradlew', '.git', 'mvnw' }),
+-- }
+-- require('jdtls').start_or_attach(config)
