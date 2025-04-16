@@ -1,7 +1,7 @@
 #!/bin/bash
 
-while [ "$select" != "NO" ] && [ "$select" != "YES" ]; do
-    select=$(echo -e "NO\nYES" | dmenu \
+while [ "$select" != "No" ] && [ "$select" != "Yes" ]; do
+    select=$(echo -e "No\nYes" | dmenu \
         -i \
         -p "You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.")
     if [ -z "$select" ]; then
@@ -9,7 +9,7 @@ while [ "$select" != "NO" ] && [ "$select" != "YES" ]; do
     fi
 done
 
-if [ "$select" = "NO" ]; then
+if [ "$select" = "No" ]; then
     exit 0
 fi
 
