@@ -36,7 +36,6 @@ vim.call('plug#begin')
 Plug('stevearc/oil.nvim')
 Plug('neovim/nvim-lspconfig')
 Plug('williamboman/mason.nvim')
-Plug('williamboman/mason-lspconfig.nvim')
 Plug('hrsh7th/nvim-cmp')
 Plug('hrsh7th/cmp-nvim-lsp')
 Plug('L3MON4D3/LuaSnip')
@@ -75,34 +74,9 @@ require("ibl").setup({ indent = {
     char = "│",
 } })
 
--- automatic mason lsp config
+-- new automatic mason lsp config
 require('mason').setup()
-local mason_lspconfig = require('mason-lspconfig')
-mason_lspconfig.setup({
-  automatic_installation = true,
-})
-
-local lspconfig = require('lspconfig')
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-mason_lspconfig.setup_handlers({
-  function(server_name)
-    lspconfig[server_name].setup({
-      capabilities = capabilities,
-    })
-  end,
-})
 require('lsp-keymaps')
-
--- -- OLD: automatic mason lsp config - NO COMMAND COMPLETION
--- require('mason').setup()
--- local mason_lspconfig = require('mason-lspconfig')
--- mason_lspconfig.setup()
--- mason_lspconfig.setup_handlers({
---   function(server_name)
---     require('lspconfig')[server_name].setup{}
---   end,
--- })
 
 -- text highlight
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -127,3 +101,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 --   root_dir = require('jdtls.setup').find_root({ 'gradlew', '.git', 'mvnw' }),
 -- }
 -- require('jdtls').start_or_attach(config)
+
+-- php
+-- lspconfig.intelephense.setup({
+--     cmd = { vim.fn.stdpath("data") .. "/mason/bin/intelephense", "--stdio" },
+--     root_dir = function(fname)
+--         return vim.fn.getcwd()
+--     end,
+-- })
