@@ -41,3 +41,14 @@ cmp.setup({
     { name = 'path' },     -- File path completions
   },
 })
+
+-- better lsp errors
+vim.keymap.set('n', '<C-Down>', function()
+  vim.diagnostic.open_float(nil, {
+    focusable = true,
+    source = "always",
+    header = "",
+    prefix = "",
+  })
+end, { desc = "Show diagnostics in floating window" })
+

@@ -7,3 +7,4 @@ end
 
 # Created by `pipx` on 2024-09-13 13:54:00
 set PATH $PATH /home/alex/.local/bin
+set -x GOOGLE_APPLICATION_CREDENTIALS /home/alex/Code/Job/event-planner/app_credentials.json

@@ -36,10 +36,12 @@ vim.call('plug#begin')
 Plug('stevearc/oil.nvim')
 Plug('neovim/nvim-lspconfig')
 Plug('williamboman/mason.nvim')
+Plug('williamboman/mason-lspconfig.nvim')
 Plug('hrsh7th/nvim-cmp')
 Plug('hrsh7th/cmp-nvim-lsp')
 Plug('L3MON4D3/LuaSnip')
 Plug('lukas-reineke/indent-blankline.nvim')
+Plug('nvim-tree/nvim-web-devicons') -- required by trouble.nvim
 -- language specific plugins
 Plug('mfussenegger/nvim-jdtls') -- java
 Plug('elixir-editors/vim-elixir') -- elixir
@@ -48,6 +50,23 @@ vim.call('plug#end')
 
 -- file explorer
 require('oil').setup()
+
+-- new automatic mason lsp config
+require('mason').setup()
+require('lsp-keymaps')
+require('mason-lspconfig').setup({
+  automatic_enable = true,
+})
+
+-- text highlight
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank({
+      higroup = 'IncSearch',
+      timeout = 150,
+    })
+  end,
+})
 
 -- god damn lines
 local highlight = {
@@ -74,20 +93,6 @@ require("ibl").setup({ indent = {
     char = "│",
 } })
 
--- new automatic mason lsp config
-require('mason').setup()
-require('lsp-keymaps')
-
--- text highlight
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank({
-      higroup = 'IncSearch',
-      timeout = 150,
-    })
-  end,
-})
-
 -- format on save
 vim.api.nvim_create_autocmd("BufWritePre", {
   callback = function()
@@ -103,9 +108,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- require('jdtls').start_or_attach(config)
 
 -- php
--- lspconfig.intelephense.setup({
---     cmd = { vim.fn.stdpath("data") .. "/mason/bin/intelephense", "--stdio" },
---     root_dir = function(fname)
---         return vim.fn.getcwd()
---     end,
--- })
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*.blade.php",
+  callback = function()
+    vim.bo.filetype = "php"
+  end,
+})
