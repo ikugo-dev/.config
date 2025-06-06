@@ -17,6 +17,9 @@ exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/adastra3.png
 # use only second monitor
 exec_always --no-startup-id ~/.config/i3/monitor-switch.sh
 
+# change keyboard
+exec_always --no-startup-id setxkbmap -layout us,gallium,rs,rs -variant ,basic,latin, -option 'grp:win_space_toggle'
+
 # brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
@@ -26,24 +29,28 @@ bindsym XF86HomePage exec ~/.config/polybar/blocks/scripts/ddcutil.sh up 20
 # lock the screen and dont make my screen black, hoe
 set $lockscript ~/.config/i3/lockscript.sh
 bindsym $mod+l exec --no-startup-id "sh $lockscript"
-# exec_always --no-startup-id sh -c "sleep 1 && xset s off && sleep 1 && xset -dpms && sleep 1 && xset s noblank"
+exec_always --no-startup-id sh -c "sleep 1 && xset s off && sleep 1 && xset -dpms && sleep 1 && xset s noblank"
 
 # turn off pc
 bindsym $mod+Shift+x exec --no-startup-id ~/.config/i3/exit.sh
 
-# change keyboard
-exec_always --no-startup-id setxkbmap -layout us,rs,rs -variant ,latin, -option 'grp:win_space_toggle'
-
 # audio control
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-bindsym XF86AudioStop exec --no-startup-id playerctl stop
-bindsym XF86AudioNext exec --no-startup-id playerctl next
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+# # keyboard audio controls
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+# bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+# bindsym XF86AudioStop exec --no-startup-id playerctl stop
+# bindsym XF86AudioNext exec --no-startup-id playerctl next
+# bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+
+# knob audio controls
+bindsym XF86AudioMute exec --no-startup-id playerctl play-pause
+bindsym $mod+Delete exec --no-startup-id playerctl stop
+bindsym $mod+Next exec --no-startup-id playerctl next
+bindsym $mod+Prior exec --no-startup-id playerctl previous
 
 # screenshots
 bindsym End exec --no-startup-id maim --hidecursor ~/Pictures/Screenshots/$(date +%Y-%b-%d-%H-%M-%S | tr A-Z a-z).png
@@ -57,8 +64,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # launch apps
-bindsym $mod+d exec --no-startup-id dmenu_run
-
+bindsym $mod+d exec --no-startup-id dmenu_run -fn "Terminus-12" -nb "#282A36" -nf "#EFF0EB" -sb "#FF6AC1" -sf "#282A36"
 # change focus
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down

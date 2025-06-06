@@ -40,9 +40,3 @@ map( "n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 -- map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
 -- map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
 -- vim.cmd("nnoremap gd :lua vim.lsp.buf.definition()<CR>")
-
--- -- disable the nitch ass jump after *
--- vim.keymap.set('n', '*', function()
---   vim.fn.setreg('/', '\\<' .. vim.fn.expand('<cword>') .. '\\>')
---   vim.cmd('set hlsearch')
--- end, { desc = "Highlight word under cursor without jumping" })
