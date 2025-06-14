@@ -6,9 +6,6 @@ font pango:Terminus 10
 # STARTUP: i3, polybar
 exec --no-startup-id dex --autostart --environment i3
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-# bar {
-#         status_command i3blocks
-# }
 
 # wallpaper
 # exec_always --no-startup-id feh --bg-fill --randomize ~/Pictures/Wallpapers/SU/*
@@ -65,6 +62,7 @@ bindsym $mod+Shift+q kill
 
 # launch apps
 bindsym $mod+d exec --no-startup-id dmenu_run -fn "Terminus-12" -nb "#282A36" -nf "#EFF0EB" -sb "#FF6AC1" -sf "#282A36"
+
 # change focus
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -137,11 +135,13 @@ bindsym $mod+Shift+r restart
 
 # resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
+
+set $resize_length 40 px
 mode "resize" {
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width $resize_length
+        bindsym Down resize grow height $resize_length
+        bindsym Up resize shrink height $resize_length
+        bindsym Right resize grow width $resize_length
 
         bindsym Return mode "default"
         bindsym Escape mode "default"
