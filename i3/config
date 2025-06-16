@@ -50,9 +50,8 @@ bindsym $mod+Next exec --no-startup-id playerctl next
 bindsym $mod+Prior exec --no-startup-id playerctl previous
 
 # screenshots
-bindsym End exec --no-startup-id maim --hidecursor ~/Pictures/Screenshots/$(date +%Y-%b-%d-%H-%M-%S | tr A-Z a-z).png
-bindsym Shift+End exec --no-startup-id maim --window $(xdotool getactivewindow) ~/Pictures/Screenshots/$(date +%Y-%b-%d-%H-%M-%S | tr A-Z a-z).png
-bindsym $mod+End exec --no-startup-id maim --select ~/Pictures/Screenshots/$(date +%Y-%b-%d-%H-%M-%S | tr A-Z a-z).png
+bindsym $mod+p exec --no-startup-id maim --hidecursor ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H:%M:%S) | tr A-Z a-z).png
+bindsym $mod+Shift+p exec  --no-startup-id maim --select ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H:%M:%S | tr A-Z a-z).png
 
 # terminal
 bindsym $mod+Return exec kitty
