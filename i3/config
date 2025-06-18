@@ -3,13 +3,13 @@
 set $mod Mod4
 font pango:Terminus 10
 
-# STARTUP: i3, polybar
+# STARTUP: i3, polybar, picom, wallpaper
 exec --no-startup-id dex --autostart --environment i3
 exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec --no-startup-id picom
 
 # wallpaper
-# exec_always --no-startup-id feh --bg-fill --randomize ~/Pictures/Wallpapers/SU/*
-exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/adastra3.png
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/trees.png
 
 # change keyboard
 exec_always --no-startup-id setxkbmap -layout us,gallium,rs,rs -variant ,basic,latin, -option 'grp:win_space_toggle'
@@ -50,7 +50,7 @@ bindsym $mod+Next exec --no-startup-id playerctl next
 bindsym $mod+Prior exec --no-startup-id playerctl previous
 
 # screenshots
-bindsym $mod+p exec --no-startup-id maim --hidecursor ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H:%M:%S) | tr A-Z a-z).png
+bindsym $mod+p exec --no-startup-id maim --hidecursor ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H:%M:%S | tr A-Z a-z).png
 bindsym $mod+Shift+p exec  --no-startup-id maim --select ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H:%M:%S | tr A-Z a-z).png
 
 # terminal
@@ -161,22 +161,22 @@ mode "resize" {
 
 # VISUAL SETTINGS
 # colors
-set $bg #282828
-set $red #cc241d
-set $green #98971a
-set $yellow #d79921
-set $blue #458588
-set $purple #b16286
-set $aqua #689d68
-set $gray #a89984
-set $darkgray #1d2021
-set $lightgray #bdae93
+set  $foreground      #d4be98
+set  $background      #1b2b34
+set  $background_alt  #282c34
+set  $red             #EC5f67
+set  $green           #a9b665
+set  $yellow          #d8a657
+set  $blue            #6699cc
+set  $magenta         #c594c5
+set  $cyan            #62b3b2
+set  $gray            #7c6f64
 
-# class                 border|backgr|text|indicator|child_border
-client.focused          $blue $blue $bg $purple $darkgray
-client.focused_inactive $darkgray $darkgray $lightgray $purple $darkgray
-client.unfocused        $darkgray $darkgray $lightgray $purple $darkgray
-client.urgent           $red $red $white $red $red
+#class                   border  backgr  text         indicator  child_border
+client.focused           $blue   $blue   $background  $magenta   $blue
+client.focused_inactive  $gray   $gray   $foreground  $magenta   $gray
+client.unfocused         $gray   $gray   $foreground  $magenta   $gray
+client.urgent            $red    $red    $foreground  $red       $red
 
 # gaps
 gaps inner 5

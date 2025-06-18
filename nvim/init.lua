@@ -6,8 +6,10 @@ package.path = package.path  .. ';' .. my_path .. '/?.lua'
 require('keymaps')
 
 -- custom theme
-local snazzy_theme = vim.fn.stdpath('config') .. '/snazzy.vim'
-vim.cmd('source ' .. snazzy_theme)
+-- local snazzy_theme = vim.fn.stdpath('config') .. '/snazzy.vim'
+-- vim.cmd('source ' .. snazzy_theme)
+
+-- better '*' command
 local star_search = vim.fn.stdpath('config') .. '/star_search.vim'
 vim.cmd('source ' .. star_search)
 
@@ -32,7 +34,14 @@ vim.opt.clipboard = "unnamedplus"
 -- plugins
 local Plug = vim.fn['plug#']
 
+
 vim.call('plug#begin')
+
+
+-- pick a theme, hoe
+Plug('rebelot/kanagawa.nvim')
+Plug('nvimdev/oceanic-material')
+
 Plug('stevearc/oil.nvim')
 Plug('neovim/nvim-lspconfig')
 Plug('williamboman/mason.nvim')
@@ -50,6 +59,10 @@ vim.call('plug#end')
 
 -- file explorer
 require('oil').setup()
+
+-- new theme
+vim.g.oceanic_material_transparent_background = 1
+vim.cmd("colorscheme oceanic_material")
 
 -- new automatic mason lsp config
 require('mason').setup()
