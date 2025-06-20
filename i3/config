@@ -15,6 +15,7 @@ exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/trees.png
 exec_always --no-startup-id setxkbmap -layout us,gallium,rs,rs -variant ,basic,latin, -option 'grp:win_space_toggle'
 
 # change display
+exec sh -c "xrandr --output eDP --off --output HDMI-A-0 --auto --set TearFree on"
 bindsym $mod+m exec --no-startup-id ~/.config/i3/monitor-switch.sh
 
 # brightness
@@ -26,7 +27,7 @@ bindsym XF86HomePage exec ~/.config/polybar/blocks/scripts/ddcutil.sh up 20
 # lock the screen and dont make my screen black, hoe
 set $lockscript ~/.config/i3/lockscript.sh
 bindsym $mod+l exec --no-startup-id "sh $lockscript"
-exec_always --no-startup-id sh -c "sleep 1 && xset s off && sleep 1 && xset -dpms && sleep 1 && xset s noblank"
+exec --no-startup-id sh -c "sleep 1 && xset s off && sleep 1 && xset -dpms && sleep 1 && xset s noblank"
 
 # turn off pc
 bindsym $mod+Shift+x exec --no-startup-id ~/.config/i3/exit.sh
@@ -130,15 +131,15 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Assign workspaces to displays
-workspace $ws1 output HDMI-A-0
-workspace $ws2 output HDMI-A-0
-workspace $ws3 output HDMI-A-0
-workspace $ws4 output HDMI-A-0
-workspace $ws5 output HDMI-A-0
-workspace $ws6 output HDMI-A-0
-workspace $ws7 output HDMI-A-0
-workspace $ws8 output eDP
-workspace $ws9 output eDP
+workspace $ws1  output HDMI-A-0
+workspace $ws2  output HDMI-A-0
+workspace $ws3  output HDMI-A-0
+workspace $ws4  output HDMI-A-0
+workspace $ws5  output HDMI-A-0
+workspace $ws6  output HDMI-A-0
+workspace $ws7  output HDMI-A-0
+workspace $ws8  output HDMI-A-0
+workspace $ws9  output eDP
 workspace $ws10 output eDP
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -149,14 +150,14 @@ bindsym $mod+r mode "resize"
 
 set $resize_length 40 px
 mode "resize" {
-        bindsym Left resize shrink width $resize_length
-        bindsym Down resize grow height $resize_length
-        bindsym Up resize shrink height $resize_length
-        bindsym Right resize grow width $resize_length
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+    bindsym  Left   resize  shrink  width   $resize_length
+    bindsym  Down   resize  grow    height  $resize_length
+    bindsym  Up     resize  shrink  height  $resize_length
+    bindsym  Right  resize  grow    width   $resize_length
+    
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 
 # VISUAL SETTINGS

@@ -11,10 +11,12 @@ if [[ -z "$HDMI_CONNECTED" ]]; then
 fi
 
 if [[ "$HDMI_ON" == "yes" && "$E_DP_ON" == "no" ]]; then
-    xrandr --output HDMI-A-0 --off --output eDP --auto --set TearFree on
+    xrandr --output eDP --auto --set TearFree on \
+           --output HDMI-A-0 --off
 elif [[ "$HDMI_ON" == "no" && "$E_DP_ON" == "yes" ]]; then
     xrandr --output eDP --auto --set TearFree on \
            --output HDMI-A-0 --auto --primary --right-of eDP --set TearFree on
 else
-    xrandr --output eDP --off --output HDMI-A-0 --auto --set TearFree on
+    xrandr --output eDP --off \
+           --output HDMI-A-0 --auto --set TearFree on
 fi
