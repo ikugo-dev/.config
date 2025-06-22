@@ -165,7 +165,7 @@ mode "resize" {
 set  $foreground      #d4be98
 set  $background      #1b2b34
 set  $background_alt  #282c34
-set  $red             #EC5f67
+set  $red             #ec5f67
 set  $green           #a9b665
 set  $yellow          #d8a657
 set  $blue            #6699cc
