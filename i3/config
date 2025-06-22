@@ -9,7 +9,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id picom
 
 # wallpaper
-exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/trees.png
+exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/sea_island.jpg
 
 # change keyboard
 exec_always --no-startup-id setxkbmap -layout us,gallium,rs,rs -variant ,basic,latin, -option 'grp:win_space_toggle'
@@ -102,9 +102,9 @@ set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "s1"
-set $ws9 "s2"
-set $ws10 "s3"
+set $ws8 "8"
+set $ws9 "s1"
+set $ws10 "s2"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
