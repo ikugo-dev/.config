@@ -53,7 +53,7 @@ alias v='nvim'
 alias :q='exit'
 alias :wq='exit'
 
-alias cfgz='nvim ~/.config/.zshrc'
+alias cfgz='nvim ~/.config/zsh/zshrc'
 alias cfgi='nvim ~/.config/i3/config'
 alias cfgp='nvim ~/.config/polybar/modules.ini'
 alias cfgk='nvim ~/.config/kitty/kitty.conf'
@@ -61,6 +61,9 @@ alias cfgn='nvim ~/.config/nvim/init.lua'
 alias cfgs='nvim ~/.config/setup.sh'
 
 # keybindings
-# export KEYTIMEOUT=1
+export KEYTIMEOUT=1
 bindkey '^[OA' history-search-backward
 bindkey '^[OB' history-search-forward
+
+# extract function
+source ~/.config/zsh/extract.zsh
