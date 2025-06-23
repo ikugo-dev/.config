@@ -8,6 +8,8 @@ exec --no-startup-id dex --autostart --environment i3
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id picom
 
+for_window [class="^kitty$"] set_terminal yes
+
 # wallpaper
 exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/sea_island.jpg
 
