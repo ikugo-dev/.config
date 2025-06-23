@@ -1,7 +1,7 @@
 # basic packages
-sudo apt install i3 lightdm x11-xserver-utils pulseaudio kitty zsh fzf nm-tray \
+sudo apt install i3 lightdm x11-xserver-utils pulseaudio kitty zsh nm-tray \
 libreoffice feh mpv brightnessctl ddcutil git polybar playerctl maim zip unzip filelight fd-find \
-pipx zathura picom ranger fzf zoxide \
+pipx zathura picom ranger \
 firmware-misc-nonfree pulseaudio-module-bluetooth transmission-gtk \
 
 # neovim
@@ -30,3 +30,9 @@ rm -rf zaread
 
 # zsh
 ln -s ~/.config/.zshrc ./.zshrc   
+
+# i3 util
+pipx install i3-swallow
+
+# image preview on ranger
+sudo apt install python3-pillow

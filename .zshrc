@@ -7,10 +7,10 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 # plugins
 zinit ice depth=1; zinit light romkatv/powerlevel10k
+zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab
 zinit light MichaelAquilina/zsh-you-should-use
 
 # snippets
@@ -26,6 +26,28 @@ zinit cdreplay -q
 # turn off sound
 unsetopt BEEP
 
+# vi cursor shape
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+     [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] ||
+       [[ ${KEYMAP} == viins ]] ||
+       [[ ${KEYMAP} = '' ]] ||
+       [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+
 # history
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -39,18 +61,28 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# completion styling
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+# completion
+autoload -U compinit
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)
 
 # Aliases
 alias ls='ls --color'
 alias v='nvim'
-alias c='clear'
+alias :q='exit'
+alias :wq='exit'
+
+alias cfgz='nvim ~/.config/.zshrc'
+alias cfgi='nvim ~/.config/i3/config'
+alias cfgp='nvim ~/.config/polybar/modules.ini'
+alias cfgk='nvim ~/.config/kitty/kitty.conf'
+alias cfgn='nvim ~/.config/nvim/init.lua'
+alias cfgs='nvim ~/.config/setup.sh'
 
 # keybindings
 bindkey -v
+export KEYTIMEOUT=1
 bindkey '^[OA' history-search-backward
 bindkey '^[OB' history-search-forward
