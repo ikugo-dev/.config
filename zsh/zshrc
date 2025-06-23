@@ -12,6 +12,7 @@ zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light MichaelAquilina/zsh-you-should-use
+zinit light zsh-users/zsh-history-substring-search
 
 # snippets
 zinit snippet OMZL::git.zsh
@@ -25,6 +26,9 @@ zinit cdreplay -q
 
 # turn off sound
 unsetopt BEEP
+
+# scripts
+fpath+=~/.config/zsh/scripts/
 
 # history
 HISTSIZE=5000
@@ -46,7 +50,14 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
 
-# Aliases
+# keybindings
+export KEYTIMEOUT=1
+zle -N history-substring-search-up
+zle -N history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# aliases
 alias ls='ls --color'
 alias vim='nvim'
 alias v='nvim'
@@ -59,11 +70,5 @@ alias cfgp='nvim ~/.config/polybar/modules.ini'
 alias cfgk='nvim ~/.config/kitty/kitty.conf'
 alias cfgn='nvim ~/.config/nvim/init.lua'
 alias cfgs='nvim ~/.config/setup.sh'
-
-# keybindings
-export KEYTIMEOUT=1
-bindkey '^[OA' history-search-backward
-bindkey '^[OB' history-search-forward
-
-# extract function
-source ~/.config/zsh/extract.zsh
+# alias folder-delete-empty='folder-delete-empty'
+# alias folder-extract-recursive='folder-extract-recursive'
