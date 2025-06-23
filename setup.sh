@@ -29,7 +29,7 @@ cd ..
 rm -rf zaread
 
 # zsh
-ln -s ~/.config/.zshrc ./.zshrc   
+ln -s ~/.config/zsh/zshrc ~/.zshrc   
 
 # i3 util
 pipx install i3-swallow
