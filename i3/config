@@ -8,21 +8,18 @@ exec --no-startup-id dex --autostart --environment i3
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id picom
 
-# wallpaper
-exec_always --no-startup-id feh --bg-fill ~/Pictures/Wallpapers/sea_island.jpg
-
-# change keyboard
-exec_always --no-startup-id setxkbmap -layout us,gallium,rs,rs -variant ,basic,latin, -option 'grp:win_space_toggle'
-
 # change display
 exec sh -c "xrandr --output eDP --off --output HDMI-A-0 --auto --set TearFree on"
 bindsym $mod+m exec --no-startup-id ~/.config/i3/monitor-switch.sh
 
+# change keyboard
+exec_always --no-startup-id setxkbmap -layout us,gallium,rs,rs -variant ,basic,latin, -option 'grp:win_space_toggle'
+
 # brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
-bindsym XF86Mail exec ~/.config/polybar/blocks/scripts/ddcutil.sh down 20
-bindsym XF86HomePage exec ~/.config/polybar/blocks/scripts/ddcutil.sh up 20
+bindsym  XF86MonBrightnessUp    exec  --no-startup-id  brightnessctl  set  +5%
+bindsym  XF86MonBrightnessDown  exec  --no-startup-id  brightnessctl  set  5%-
+bindsym  XF86HomePage  exec  ~/.config/polybar/blocks/scripts/ddcutil.sh  up    20
+bindsym  XF86Mail      exec  ~/.config/polybar/blocks/scripts/ddcutil.sh  down  20
 
 # lock the screen and dont make my screen black, hoe
 set $lockscript ~/.config/i3/lockscript.sh
@@ -161,6 +158,10 @@ mode "resize" {
 }
 
 # VISUAL SETTINGS
+
+# wallpaper
+exec_always --no-startup-id feh --bg-max ~/Pictures/Wallpapers/sea_island.jpg
+
 # colors
 set  $foreground      #d4be98
 set  $background      #1b2b34

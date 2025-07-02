@@ -36,3 +36,12 @@ pipx install i3-swallow
 
 # image preview on ranger
 sudo apt install python3-pillow
+
+#cursor
+git clone https://github.com/uloco/numix-cursor.git
+sudo mv numix-cursor/theme/Numix-Cursor /usr/share/icons
+echo -e "[Icon Theme]\nName=Numix-Cursor\nInherits=Numix-Cursor" \
+    > /usr/share/icons/default/index.theme   
+rm -rf numix-cursor
+export XCURSOR_THEME=Numix-Cursor
+export XCURSOR_SIZE=16   
