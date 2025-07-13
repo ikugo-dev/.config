@@ -1,17 +1,39 @@
 -- lua file locations
-local my_path = vim.fn.stdpath('config') .. '/lua'
-package.path = package.path  .. ';' .. my_path .. '/?.lua'
+local my_path = vim.fn.stdpath("config") .. "/lua"
+package.path = package.path  .. ";" .. my_path .. "/?.lua"
 
 -- custom keymaps
-require('keymaps')
+require("keymaps")
 
--- custom theme
--- local snazzy_theme = vim.fn.stdpath('config') .. '/snazzy.vim'
--- vim.cmd('source ' .. snazzy_theme)
+-- plugins
+local Plug = vim.fn["plug#"]
 
--- better '*' command
-local star_search = vim.fn.stdpath('config') .. '/star_search.vim'
-vim.cmd('source ' .. star_search)
+vim.call("plug#begin")
+
+Plug("nvimdev/oceanic-material")
+Plug("stevearc/oil.nvim")
+Plug("neovim/nvim-lspconfig")
+Plug("williamboman/mason.nvim")
+Plug("williamboman/mason-lspconfig.nvim")
+Plug("hrsh7th/nvim-cmp")
+Plug("hrsh7th/cmp-nvim-lsp")
+Plug("L3MON4D3/LuaSnip")
+Plug("lukas-reineke/indent-blankline.nvim")
+-- language specific plugins
+-- Plug("mfussenegger/nvim-jdtls") -- java
+-- Plug("elixir-editors/vim-elixir") -- elixir
+
+vim.call("plug#end")
+
+-- theme
+-- local snazzy_theme = vim.fn.stdpath("config") .. "/snazzy.vim"
+-- vim.cmd("source " .. snazzy_theme)
+vim.g.oceanic_material_transparent_background = 1
+vim.cmd("colorscheme oceanic_material")
+
+-- better "*" command
+local star_search = vim.fn.stdpath("config") .. "/star_search.vim"
+vim.cmd("source " .. star_search)
 
 -- scrolling limit 
 vim.o.scrolloff = 8
@@ -31,51 +53,26 @@ vim.opt.softtabstop = 4
 -- clipboard bullshit
 vim.opt.clipboard = "unnamedplus"
 
--- plugins
-local Plug = vim.fn['plug#']
-
-
-vim.call('plug#begin')
-
-
--- pick a theme, hoe
-Plug('rebelot/kanagawa.nvim')
-Plug('nvimdev/oceanic-material')
-
-Plug('stevearc/oil.nvim')
-Plug('neovim/nvim-lspconfig')
-Plug('williamboman/mason.nvim')
-Plug('williamboman/mason-lspconfig.nvim')
-Plug('hrsh7th/nvim-cmp')
-Plug('hrsh7th/cmp-nvim-lsp')
-Plug('L3MON4D3/LuaSnip')
-Plug('lukas-reineke/indent-blankline.nvim')
-Plug('nvim-tree/nvim-web-devicons') -- required by trouble.nvim
--- language specific plugins
-Plug('mfussenegger/nvim-jdtls') -- java
-Plug('elixir-editors/vim-elixir') -- elixir
-
-vim.call('plug#end')
-
 -- file explorer
-require('oil').setup()
-
--- new theme
-vim.g.oceanic_material_transparent_background = 1
-vim.cmd("colorscheme oceanic_material")
+require("oil").setup()
 
 -- new automatic mason lsp config
-require('mason').setup()
-require('lsp-keymaps')
-require('mason-lspconfig').setup({
+require("mason").setup()
+require("lsp-keymaps")
+require("mason-lspconfig").setup({
   automatic_enable = true,
+  settings = {
+    python = {
+      pythonPath = vim.fn.getcwd() .. "/../bin/python3"
+    }
+  },
 })
 
 -- text highlight
-vim.api.nvim_create_autocmd('TextYankPost', {
+vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank({
-      higroup = 'IncSearch',
+      higroup = "IncSearch",
       timeout = 150,
     })
   end,
@@ -116,14 +113,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- java
 -- local config = {
 --   cmd = { "/home/alex/.local/share/nvim/mason/bin/jdtls" },
---   root_dir = require('jdtls.setup').find_root({ 'gradlew', '.git', 'mvnw' }),
+--   root_dir = require("jdtls.setup").find_root({ "gradlew", ".git", "mvnw" }),
 -- }
--- require('jdtls').start_or_attach(config)
+-- require("jdtls").start_or_attach(config)
 
 -- php
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-  pattern = "*.blade.php",
-  callback = function()
-    vim.bo.filetype = "php"
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+--   pattern = "*.blade.php",
+--   callback = function()
+--     vim.bo.filetype = "php"
+--   end,
+-- })

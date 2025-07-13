@@ -8,9 +8,14 @@ exec --no-startup-id dex --autostart --environment i3
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id picom
 
-# change display
-exec sh -c "xrandr --output eDP --off --output HDMI-A-0 --auto --set TearFree on"
+# change display + startup display
 bindsym $mod+m exec --no-startup-id ~/.config/i3/monitor-switch.sh
+# exec sh -c "xrandr --output eDP --auto --set TearFree on \
+           # --output HDMI-A-0 --off"
+# exec sh -c "xrandr --output eDP --auto --set TearFree on \
+#            --output HDMI-A-0 --auto --primary --right-of eDP --set TearFree on"
+exec sh -c "xrandr --output eDP --off \
+           --output HDMI-A-0 --auto --set TearFree on"
 
 # change keyboard
 exec_always --no-startup-id setxkbmap -layout us,gallium,rs,rs -variant ,basic,latin, -option 'grp:win_space_toggle'
