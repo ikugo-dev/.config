@@ -1,8 +1,9 @@
 # basic packages
 sudo apt install i3 lightdm x11-xserver-utils pulseaudio kitty fish nm-tray zram-tools \
-libreoffice feh mpv brightnessctl ddcutil git polybar playerctl maim zip unzip filelight fd-find \
-pipx zathura picom ranger \
 firmware-misc-nonfree pulseaudio-module-bluetooth transmission-gtk \
+feh mpv git polybar maim zip unzip filelight fd-find \
+pipx libreoffice zathura picom ranger \
+brightnessctl ddcutil gammastep playerctl
 
 # neovim
 sudo apt install ninja-build gettext cmake unzip curl build-essential

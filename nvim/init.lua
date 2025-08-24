@@ -19,9 +19,23 @@ Plug("hrsh7th/nvim-cmp")
 Plug("hrsh7th/cmp-nvim-lsp")
 Plug("L3MON4D3/LuaSnip")
 Plug("lukas-reineke/indent-blankline.nvim")
+Plug("posva/vim-vue")
+
 -- language specific plugins
 -- Plug("mfussenegger/nvim-jdtls") -- java
 -- Plug("elixir-editors/vim-elixir") -- elixir
+-- Mason plugins:
+    -- ◍ clangd
+    -- ◍ jdtls
+    -- ◍ omnisharp
+    -- ◍ shellcheck
+    -- ◍ pyright
+    -- ◍ elixir-ls elixirls
+    -- ◍ bash-language-server bashls
+    -- ◍ deno denols
+    -- ◍ eslint-lsp eslint
+    -- ◍ html-lsp html
+    -- ◍ prettier
 
 vim.call("plug#end")
 
@@ -124,3 +138,34 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 --     vim.bo.filetype = "php"
 --   end,
 -- })
+
+-- c#
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+require("lspconfig").omnisharp.setup({
+  capabilities = require("cmp_nvim_lsp").default_capabilities(),
+  cmd = {
+    "dotnet",
+    vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll"
+  },
+  enable_import_completion = true,
+  enable_roslyn_analyzers = true,
+})
+
+-- local servers = {
+--   -- Vue 3        
+--   volar = {},
+--   -- TypeScript
+--   ts_ls = {
+--     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+--     init_options = {
+--       plugins = {
+--         {
+--           name = '@vue/typescript-plugin',
+--           location = vim.fn.stdpath 'data' .. '/mason/packages/vue-language-server/node_modules/@vue/language-server',
+--           languages = { 'vue' },
+--         },
+--       },
+--     },
+--   },
+--   -- ...
+-- }
