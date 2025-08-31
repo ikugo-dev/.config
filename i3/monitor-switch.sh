@@ -1,5 +1,5 @@
 #!/bin/bash
-MONITOR_STATE=./detect-monitor.sh
+MONITOR_STATE=$(~/.config/i3/detect-monitor.sh)
 
 if [[ $MONITOR_STATE == "SECONDARY" ]]; then
     xrandr --output eDP --auto --set TearFree on \
