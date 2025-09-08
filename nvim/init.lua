@@ -11,7 +11,7 @@ local Plug = vim.fn["plug#"]
 vim.call("plug#begin")
 
 Plug("nvimdev/oceanic-material")
-Plug("stevearc/oil.nvim")
+Plug("nvim-mini/mini.nvim")
 Plug("neovim/nvim-lspconfig")
 Plug("williamboman/mason.nvim")
 Plug("williamboman/mason-lspconfig.nvim")
@@ -19,9 +19,9 @@ Plug("hrsh7th/nvim-cmp")
 Plug("hrsh7th/cmp-nvim-lsp")
 Plug("L3MON4D3/LuaSnip")
 Plug("lukas-reineke/indent-blankline.nvim")
-Plug("posva/vim-vue")
 
 -- language specific plugins
+Plug("posva/vim-vue") -- vue3
 -- Plug("mfussenegger/nvim-jdtls") -- java
 -- Plug("elixir-editors/vim-elixir") -- elixir
 -- Mason plugins:
@@ -36,6 +36,7 @@ Plug("posva/vim-vue")
     -- ◍ eslint-lsp eslint
     -- ◍ html-lsp html
     -- ◍ prettier
+    -- ◍ gopls
 
 vim.call("plug#end")
 
@@ -44,6 +45,7 @@ vim.call("plug#end")
 -- vim.cmd("source " .. snazzy_theme)
 vim.g.oceanic_material_transparent_background = 1
 vim.cmd("colorscheme oceanic_material")
+vim.cmd("set fillchars+=stl:\\─,stlnc:\\-") -- line in statusbar
 
 -- better "*" command
 local star_search = vim.fn.stdpath("config") .. "/star_search.vim"
@@ -68,7 +70,14 @@ vim.opt.softtabstop = 4
 vim.opt.clipboard = "unnamedplus"
 
 -- file explorer
-require("oil").setup()
+require("mini.files").setup({
+    mappings = {
+    go_in       = "<Right>",
+    go_in_plus  = "<S-Right>",
+    go_out      = "<Left>",
+    go_out_plus = "<S-Left>",
+    },
+})
 
 -- new automatic mason lsp config
 require("mason").setup()
@@ -156,13 +165,13 @@ require("lspconfig").omnisharp.setup({
 --   volar = {},
 --   -- TypeScript
 --   ts_ls = {
---     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+--     filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 --     init_options = {
 --       plugins = {
 --         {
---           name = '@vue/typescript-plugin',
---           location = vim.fn.stdpath 'data' .. '/mason/packages/vue-language-server/node_modules/@vue/language-server',
---           languages = { 'vue' },
+--           name = "@vue/typescript-plugin",
+--           location = vim.fn.stdpath "data" .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+--           languages = { "vue" },
 --         },
 --       },
 --     },
