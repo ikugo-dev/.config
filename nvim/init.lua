@@ -125,3 +125,5 @@ require("mini.move").setup({
 require("mini.splitjoin").setup() -- default = "gS"
 
 require("language_specific_lsp")
+
+require("mini.diff").setup()
