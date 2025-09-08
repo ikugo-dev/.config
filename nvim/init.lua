@@ -10,15 +10,13 @@ local Plug = vim.fn["plug#"]
 
 vim.call("plug#begin")
 
-Plug("nvimdev/oceanic-material")
 Plug("nvim-mini/mini.nvim")
 Plug("neovim/nvim-lspconfig")
 Plug("williamboman/mason.nvim")
 Plug("williamboman/mason-lspconfig.nvim")
-Plug("hrsh7th/nvim-cmp")
-Plug("hrsh7th/cmp-nvim-lsp")
-Plug("L3MON4D3/LuaSnip")
+Plug("nvimdev/oceanic-material")
 Plug("lukas-reineke/indent-blankline.nvim")
+
 
 -- language specific plugins
 Plug("posva/vim-vue") -- vue3
@@ -41,11 +39,12 @@ Plug("posva/vim-vue") -- vue3
 vim.call("plug#end")
 
 -- theme
--- local snazzy_theme = vim.fn.stdpath("config") .. "/snazzy.vim"
--- vim.cmd("source " .. snazzy_theme)
 vim.g.oceanic_material_transparent_background = 1
 vim.cmd("colorscheme oceanic_material")
 vim.cmd("set fillchars+=stl:\\─,stlnc:\\-") -- line in statusbar
+require("indent_blanklines") -- lines for tabs
+-- local snazzy_theme = vim.fn.stdpath("config") .. "/snazzy.vim"
+-- vim.cmd("source " .. snazzy_theme)
 
 -- better "*" command
 local star_search = vim.fn.stdpath("config") .. "/star_search.vim"
@@ -72,16 +71,17 @@ vim.opt.clipboard = "unnamedplus"
 -- file explorer
 require("mini.files").setup({
     mappings = {
-    go_in       = "<Right>",
-    go_in_plus  = "<S-Right>",
-    go_out      = "<Left>",
-    go_out_plus = "<S-Left>",
+    go_in       = "<S-Right>",
+    go_in_plus  = "<Right>",
+    go_out      = "<S-Left>",
+    go_out_plus = "<Left>",
     },
 })
 
--- new automatic mason lsp config
+-- automatic mason lsp config
+require("mini.completion").setup()
 require("mason").setup()
-require("lsp-keymaps")
+require("lsp_keymaps")
 require("mason-lspconfig").setup({
   automatic_enable = true,
   settings = {
@@ -101,31 +101,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
--- god damn lines
-local highlight = {
-    "RainbowRed",
-    "RainbowYellow",
-    "RainbowBlue",
-    "RainbowOrange",
-    "RainbowGreen",
-    "RainbowViolet",
-    "RainbowCyan",
-}
-local hooks = require "ibl.hooks"
-hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-    vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
-    vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
-    vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
-    vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
-    vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
-    vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
-    vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
-end)
-require("ibl").setup({ indent = {
-    highlight = highlight,
-    char = "│",
-} })
-
 -- format on save
 vim.api.nvim_create_autocmd("BufWritePre", {
   callback = function()
@@ -133,48 +108,20 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
--- java
--- local config = {
---   cmd = { "/home/alex/.local/share/nvim/mason/bin/jdtls" },
---   root_dir = require("jdtls.setup").find_root({ "gradlew", ".git", "mvnw" }),
--- }
--- require("jdtls").start_or_attach(config)
-
--- php
--- vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
---   pattern = "*.blade.php",
---   callback = function()
---     vim.bo.filetype = "php"
---   end,
--- })
-
--- c#
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
-require("lspconfig").omnisharp.setup({
-  capabilities = require("cmp_nvim_lsp").default_capabilities(),
-  cmd = {
-    "dotnet",
-    vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll"
-  },
-  enable_import_completion = true,
-  enable_roslyn_analyzers = true,
+-- move lines around with Alt
+require("mini.move").setup({
+    mappings = {
+        left = "<M-Left>",
+        right = "<M-Right>",
+        down = "<M-Down>",
+        up = "<M-Up>",
+        line_left = "<M-Left>",
+        line_right = "<M-Right>",
+        line_down = "<M-Down>",
+        line_up = "<M-Up>",
+    },
 })
 
--- local servers = {
---   -- Vue 3        
---   volar = {},
---   -- TypeScript
---   ts_ls = {
---     filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
---     init_options = {
---       plugins = {
---         {
---           name = "@vue/typescript-plugin",
---           location = vim.fn.stdpath "data" .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
---           languages = { "vue" },
---         },
---       },
---     },
---   },
---   -- ...
--- }
+require("mini.splitjoin").setup() -- default = "gS"
+
+require("language_specific_lsp")

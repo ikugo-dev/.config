@@ -1,0 +1,43 @@
+-- java
+-- local config = {
+--   cmd = { "/home/alex/.local/share/nvim/mason/bin/jdtls" },
+--   root_dir = require("jdtls.setup").find_root({ "gradlew", ".git", "mvnw" }),
+-- }
+-- require("jdtls").start_or_attach(config)
+
+-- php
+-- vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+--   pattern = "*.blade.php",
+--   callback = function()
+--     vim.bo.filetype = "php"
+--   end,
+-- })
+
+-- c#
+-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+-- require("lspconfig").omnisharp.setup({
+--   capabilities = require("cmp_nvim_lsp").default_capabilities(),
+--   cmd = {
+--     "dotnet",
+--     vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll"
+--   },
+--   enable_import_completion = true,
+--   enable_roslyn_analyzers = true,
+-- })
+
+-- -- Vue 3        
+-- local servers = {
+--   volar = {},
+--   ts_ls = {
+--     filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+--     init_options = {
+--       plugins = {
+--         {
+--           name = "@vue/typescript-plugin",
+--           location = vim.fn.stdpath "data" .. "/mason/packages/vue-language-server/node_modules/@vue/language-server",
+--           languages = { "vue" },
+--         },
+--       },
+--     },
+--   },
+-- }

@@ -7,10 +7,6 @@ map('n', 'q:', '<Nop>', { noremap = true, silent = true })
 map("n", "<A-Left>", "<cmd>bprevious<cr>", { desc = "Prev Buffer", remap = true })
 map("n", "<A-Right>", "<cmd>bnext<cr>", { desc = "Next Buffer", remap = true })
 
--- move Lines
-map("n", "<A-Down>", "<cmd>m .+1<cr>==", { desc = "Move Down", remap = true })
-map("n", "<A-Up>", "<cmd>m .-2<cr>==", { desc = "Move Up", remap = true })
-
 -- append line below to the end of the current line
 map("n", "<S-Up>", "J", { desc = "Append Up", remap = true })
 
