@@ -39,10 +39,12 @@ Plug("posva/vim-vue") -- vue3
 vim.call("plug#end")
 
 -- theme
-vim.g.oceanic_material_transparent_background = 1
-vim.cmd("colorscheme oceanic_material")
+vim.g.oceanic_material_transparent_background = 1 -- picom compatability
+vim.cmd("colorscheme oceanic_material") -- actual theme
 vim.cmd("set fillchars+=stl:\\─,stlnc:\\-") -- line in statusbar
 require("indent_blanklines") -- lines for tabs
+require("mini.diff").setup() -- git visuals
+require("mini.icons").setup() -- icons
 -- local snazzy_theme = vim.fn.stdpath("config") .. "/snazzy.vim"
 -- vim.cmd("source " .. snazzy_theme)
 
@@ -125,5 +127,3 @@ require("mini.move").setup({
 require("mini.splitjoin").setup() -- default = "gS"
 
 require("language_specific_lsp")
-
-require("mini.diff").setup()
