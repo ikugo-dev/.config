@@ -1,0 +1,43 @@
+default partial
+xkb_symbols "basic" {
+    include "us(basic)"
+
+    name[Group1] = "ColemakDH";
+
+    key <AD01> {[ q, Q ]};
+    key <AD02> {[ w, W ]};
+    key <AD03> {[ p, P ]};
+    key <AD04> {[ f, F ]};
+    key <AD05> {[ b, B ]};
+    key <AD06> {[ j, J ]};
+    key <AD07> {[ l, L ]};
+    key <AD08> {[ u, U ]};
+    key <AD09> {[ y, Y ]};
+    key <AD10> {[ semicolon, colon ]};
+    key <AD11> {[ bracketleft, braceleft ]};
+    key <AD12> {[ bracketright, braceright ]};
+    key <BKSL> {[ backslash, bar ]};
+
+    key <AC01> {[ a, A ]};
+    key <AC02> {[ r, R ]};
+    key <AC03> {[ t, T ]};
+    key <AC04> {[ s, S ]};
+    key <AC05> {[ g, G ]};
+    key <AC06> {[ m, M ]};
+    key <AC07> {[ n, N ]};
+    key <AC08> {[ e, E ]};
+    key <AC09> {[ i, I ]};
+    key <AC10> {[ o, O ]};
+    key <AC11> {[apostrophe, quotedbl ]};
+
+    key <AB01> {[ x, X ]};
+    key <AB02> {[ d, D ]};
+    key <AB03> {[ c, C ]};
+    key <AB04> {[ v, V ]};
+    key <AB05> {[ z, Z ]};
+    key <AB06> {[ k, K ]};
+    key <AB07> {[ h, H ]};
+    key <AB08> {[ comma, less ]};
+    key <AB09> {[ period, greater ]};
+    key <AB10> {[ slash, question ]};
+};

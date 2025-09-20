@@ -20,9 +20,9 @@ exec sh -c "xrandr --output eDP --off \
 # change keyboard
 
 exec_always setxkbmap \
-                 -layout  us,colemak-dh,rs,rs \
+                 -layout  us,colemak-dh-arts,rs,rs \
                  -variant basic,basic,latin,basic \
-                 -option  'grp:win_space_toggle'
+                 -option  'grp:win_space_toggle' \
 # brightness
 bindsym  XF86MonBrightnessUp    exec  --no-startup-id  brightnessctl  set  +5%
 bindsym  XF86MonBrightnessDown  exec  --no-startup-id  brightnessctl  set  5%-
@@ -85,7 +85,6 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 
 # split horizontaly or vertiacly
