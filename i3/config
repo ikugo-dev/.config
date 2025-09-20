@@ -167,7 +167,7 @@ mode "resize" {
 # VISUAL SETTINGS
 
 # wallpaper
-exec_always --no-startup-id sh -c "sleep 1 && feh --bg-max ~/Pictures/Wallpapers/sea_island.jpg"
+exec_always --no-startup-id sh -c "sleep 1 && feh --bg-max ~/.config/Wallpapers/sea_island.jpg"
 
 # colors
 set  $foreground      #d4be98
