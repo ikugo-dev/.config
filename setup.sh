@@ -1,9 +1,13 @@
 # basic packages
-sudo apt install i3 lightdm x11-xserver-utils pulseaudio kitty fish nm-tray zram-tools \
-firmware-misc-nonfree pulseaudio-module-bluetooth transmission-gtk \
-feh mpv git polybar maim zip unzip filelight fd-find \
-pipx libreoffice zathura picom ranger \
+sudo apt install i3 x11-xserver-utils xinit pulseaudio nm-tray zram-tools xclip psmisc \
+firmware-misc-nonfree pulseaudio-module-bluetooth kitty fish \
+firefox-esr feh mpv git polybar maim zip unzip filelight fd-find \
+pipx libreoffice zathura picom ranger transmission-gtk \
 brightnessctl ddcutil gammastep playerctl
+
+
+sudo chsh -s "/usr/bin/fish"
+
 
 # neovim
 sudo apt install ninja-build gettext cmake unzip curl build-essential
