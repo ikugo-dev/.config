@@ -1,7 +1,7 @@
 # basic packages
 sudo apt install i3 x11-xserver-utils xinit pulseaudio nm-tray zram-tools xclip psmisc \
 firmware-misc-nonfree pulseaudio-module-bluetooth kitty fish \
-firefox-esr feh mpv git polybar maim zip unzip filelight fd-find \
+firefox-esr feh mpv git polybar maim zip unzip filelight fd-find bat \
 pipx libreoffice zathura picom ranger transmission-gtk \
 brightnessctl ddcutil gammastep playerctl
 
@@ -11,6 +11,7 @@ sudo chsh -s "/usr/bin/fish"
 
 # neovim
 sudo apt install ninja-build gettext cmake unzip curl build-essential
+cd ~/.config
 git clone https://github.com/neovim/neovim
 cd neovim || exit
 make CMAKE_BUILD_TYPE=RelWithDebInfo
@@ -20,11 +21,15 @@ sudo dpkg -i --force-overwrite ./nvim-linux-x86_64.deb
 nvim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-cd || exit
+cd ~/.config
+sudo rm -rf neovim
 
 # fonts
-cp -r ./fonts ~/.local/share/fonts
+sudo cp -r ./fonts ~/.local/share/fonts
 fc-cache
+
+# colemak layout
+sudo cp ~/.config/colemak-dh-arts ./ 
 
 # zaread
 git clone https://github.com/paoloap/zaread
@@ -48,8 +53,9 @@ rm -rf numix-cursor
 export XCURSOR_THEME=Numix-Cursor
 export XCURSOR_SIZE=16   
 
-
 # fish
+fish
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 fisher install IlanCosman/tide@v6
 fisher install jhillyerd/plugin-git
+exit
