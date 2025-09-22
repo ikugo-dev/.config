@@ -1,6 +1,7 @@
 # FUNCTIONAL SETTINGS
 # mod key, font
 set $mod Mod4
+set $scripts "
 font pango:Terminus 10
 
 # STARTUP: i3, polybar, picom, wallpaper
@@ -9,7 +10,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id picom
 exec --no-startup-id gammastep -l 43.19:21.55 -t 6000:4000
 # change display + startup display
-bindsym $mod+m exec --no-startup-id ~/.config/i3/monitor-switch.sh
+bindsym $mod+m exec --no-startup-id ~/Code/Scripts/i3/monitor-switch.sh"
 # exec sh -c "xrandr --output eDP --auto --set TearFree on \
 #            --output HDMI-A-0 --off"
 # exec sh -c "xrandr --output eDP --auto --set TearFree on \
@@ -26,16 +27,14 @@ exec_always setxkbmap \
 # brightness
 bindsym  XF86MonBrightnessUp    exec  --no-startup-id  brightnessctl  set  +5%
 bindsym  XF86MonBrightnessDown  exec  --no-startup-id  brightnessctl  set  5%-
-bindsym  XF86HomePage  exec  ~/.config/polybar/blocks/scripts/ddcutil.sh  up    20
-bindsym  XF86Mail      exec  ~/.config/polybar/blocks/scripts/ddcutil.sh  down  20
 
 # lock the screen and dont make my screen black, hoe
-bindsym $mod+l exec --no-startup-id ~/.config/i3/lockscript.sh
+bindsym $mod+l exec --no-startup-id ~/Code/Scripts/i3/lockscript.sh
 exec --no-startup-id sh -c "sleep 1 && xset s off && sleep 1 && xset -dpms && sleep 1 && xset s noblank"
 
 # turn off pc
-bindsym $mod+Shift+x exec --no-startup-id ~/.config/i3/exit.sh
-bindsym $mod+Shift+z exec --no-startup-id ~/.config/i3/reboot.sh
+bindsym $mod+Shift+x exec --no-startup-id ~/Code/Scripts/i3/exit-prompt.sh
+bindsym $mod+Shift+z exec --no-startup-id ~/Code/Scripts/i3/reboot-prompt.sh
 
 # audio control
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status

@@ -1,3 +1,6 @@
+# fuck that beep sound
+echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
+
 # basic packages
 sudo apt install i3 x11-xserver-utils xinit pulseaudio nm-tray zram-tools xclip psmisc \
 firmware-misc-nonfree pulseaudio-module-bluetooth kitty fish \
@@ -59,3 +62,5 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 fisher install IlanCosman/tide@v6
 fisher install jhillyerd/plugin-git
 exit
+
+
