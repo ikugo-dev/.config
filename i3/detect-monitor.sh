@@ -1,8 +1,5 @@
 #!/bin/bash
 HDMI_CONNECTED=$(xrandr | grep "HDMI-A-0 connected")
-if [[ -z "$HDMI_CONNECTED" ]]; then
-    echo "NONE"
-fi
 
 E_DP_ON=$(xrandr --listmonitors | grep -q "eDP" && echo "yes" || echo "no")
 HDMI_ON=$(xrandr --listmonitors | grep -q "HDMI-A-0" && echo "yes" || echo "no")
