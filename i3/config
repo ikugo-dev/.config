@@ -10,7 +10,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id picom
 exec --no-startup-id gammastep -l 43.19:21.55 -t 6000:4000
 # change display + startup display
-bindsym $mod+m exec --no-startup-id ~/Code/Scripts/i3/monitor-switch.sh"
+bindsym $mod+m exec --no-startup-id ~/Code/Scripts/i3/monitor-switch.sh
 # exec sh -c "xrandr --output eDP --auto --set TearFree on \
 #            --output HDMI-A-0 --off"
 # exec sh -c "xrandr --output eDP --auto --set TearFree on \
@@ -19,11 +19,10 @@ exec sh -c "xrandr --output eDP --off \
            --output HDMI-A-0 --auto --set TearFree on"
 
 # change keyboard
-
 exec_always setxkbmap \
                  -layout  us,colemak-dh-arts,rs,rs \
                  -variant basic,basic,latin,basic \
-                 -option  'grp:win_space_toggle' \
+                 -option  'grp:win_space_toggle',caps:backspace \
 # brightness
 bindsym  XF86MonBrightnessUp    exec  --no-startup-id  brightnessctl  set  +5%
 bindsym  XF86MonBrightnessDown  exec  --no-startup-id  brightnessctl  set  5%-
