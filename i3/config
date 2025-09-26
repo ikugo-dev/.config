@@ -11,12 +11,6 @@ exec --no-startup-id picom
 exec --no-startup-id gammastep -l 43.19:21.55 -t 6000:4000
 # change display + startup display
 bindsym $mod+m exec --no-startup-id ~/Code/Scripts/i3/monitor-switch.sh
-# exec sh -c "xrandr --output eDP --auto --set TearFree on \
-#            --output HDMI-A-0 --off"
-# exec sh -c "xrandr --output eDP --auto --set TearFree on \
-#            --output HDMI-A-0 --auto --primary --right-of eDP --set TearFree on"
-exec sh -c "xrandr --output eDP --off \
-           --output HDMI-A-0 --auto --set TearFree on"
 
 # change keyboard
 exec_always setxkbmap \
@@ -55,7 +49,7 @@ bindsym $mod+Prior exec --no-startup-id playerctl previous
 
 # screenshots
 bindsym $mod+p exec --no-startup-id maim --hidecursor ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H:%M:%S | tr A-Z a-z).png
-bindsym $mod+Shift+p exec  --no-startup-id maim --select ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H:%M:%S | tr A-Z a-z).png
+bindsym $mod+Shift+p exec --no-startup-id maim --select ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H:%M:%S | tr A-Z a-z).png
 
 # terminal
 bindsym $mod+Return exec kitty
@@ -163,9 +157,8 @@ mode "resize" {
 }
 
 # VISUAL SETTINGS
-
 # wallpaper
-exec_always --no-startup-id sh -c "sleep 1 && feh --bg-max ~/.config/Wallpapers/sea_island.jpg"
+exec_always --no-startup-id sh -c "sleep 1 && feh --bg-max ~/.config/.wallpapers/sea_island.jpg"
 
 # colors
 set  $foreground      #d4be98
