@@ -2,11 +2,10 @@
 echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
 
 # basic packages
-sudo apt install pulseaudio nm-tray zram-tools psmisc \
-sway jq wl-clipboard grim slurp \
+sudo apt install i3 x11-xserver-utils xinit pulseaudio nm-tray zram-tools xclip psmisc \
 firmware-misc-nonfree pulseaudio-module-bluetooth kitty fish \
 ninja-build gettext cmake unzip curl build-essential \
-firefox-esr feh mpv git openssh-client polybar zip filelight fd-find bat tree \
+firefox-esr feh mpv git openssh-client polybar maim zip filelight fd-find bat tree \
 pipx libreoffice zathura picom ranger transmission-gtk \
 brightnessctl ddcutil gammastep playerctl
 

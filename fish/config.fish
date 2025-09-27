@@ -31,6 +31,7 @@ abbr --add cfgn 'nvim ~/.config/nvim/init.lua'
 abbr --add cfgv 'nvim ~/.config/nvim/init.lua'
 abbr --add cfgs 'nvim ~/.config/setup.sh'
 abbr --add cfgS 'nvim ~/Code/Scripts'
+abbr --add autoremove 'sudo pacman -Qdtq | sudo pacman -Rs -'
 
 abbr --add comic 'curl -H "X-TERMINAL-ROWS: $(tput lines)" -H "X-TERMINAL-COLUMNS: $(tput cols)" https://xkcd.massi.rocks/comics/random'
 

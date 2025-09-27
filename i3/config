@@ -2,7 +2,7 @@
 # mod key, font
 set $mod Mod4
 set $scripts "
-font pango:Terminus 10
+font pango:HurmitNerdFont 10
 
 # STARTUP: i3, polybar, picom, wallpaper
 exec --no-startup-id dex --autostart --environment i3
@@ -11,6 +11,7 @@ exec --no-startup-id picom
 exec --no-startup-id gammastep -l 43.19:21.55 -t 6000:4000
 # change display + startup display
 bindsym $mod+m exec --no-startup-id ~/Code/Scripts/i3/monitor-switch.sh
+exec --no-startup-id sh -c "~/Code/Scripts/i3/monitor-switch.sh"
 
 # change keyboard
 exec_always setxkbmap \
@@ -32,14 +33,6 @@ bindsym $mod+Shift+z exec --no-startup-id ~/Code/Scripts/i3/reboot-prompt.sh
 # audio control
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-
-# # keyboard audio controls
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-# bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-# bindsym XF86AudioStop exec --no-startup-id playerctl stop
-# bindsym XF86AudioNext exec --no-startup-id playerctl next
-# bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # knob audio controls
 bindsym XF86AudioMute exec --no-startup-id playerctl play-pause
