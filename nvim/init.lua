@@ -18,6 +18,11 @@ Plug("nvimdev/oceanic-material")
 Plug("lukas-reineke/indent-blankline.nvim")
 
 
+
+Plug('dgox16/oldworld.nvim')
+Plug('Yazeed1s/minimal.nvim')
+Plug('water-sucks/darkrose.nvim')
+
 -- language specific plugins
 Plug("posva/vim-vue") -- vue3
 -- Plug("mfussenegger/nvim-jdtls") -- java

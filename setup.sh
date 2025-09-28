@@ -1,12 +1,13 @@
+#TODO fix echo calls for newline characters
 # fuck that beep sound
-echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
+echo "blacklist pcspkr blacklist snd_pcsp" | sudo tee /etc/modprobe.d/nobeep.conf
 
 # basic packages
 sudo pacman -S xorg-xrandr zram-tools xclip psmisc \
 kitty fish gettext less base-devel cmake unzip curl \
 brightnessctl ddcutil gammastep playerctl \
-firefox feh mpv git polybar maim zip filelight bat tree \
-libreoffice zathura picom ranger transmission-gtk \
+firefox feh mpv git polybar maim zip filelight bat tree fd \
+libreoffice zathura picom yazi transmission-gtk \
 
 # yay
 cd ~/.config || exit

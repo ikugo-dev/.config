@@ -151,7 +151,7 @@ mode "resize" {
 
 # VISUAL SETTINGS
 # wallpaper
-exec_always --no-startup-id sh -c "sleep 1 && feh --bg-max ~/.config/.wallpapers/sea_island.jpg"
+exec_always --no-startup-id sh -c "feh --bg-max ~/.config/.wallpapers/castlevania3.png"
 
 # colors
 set  $foreground      #d4be98
