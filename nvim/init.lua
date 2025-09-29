@@ -14,14 +14,8 @@ Plug("nvim-mini/mini.nvim")
 Plug("neovim/nvim-lspconfig")
 Plug("williamboman/mason.nvim")
 Plug("williamboman/mason-lspconfig.nvim")
-Plug("nvimdev/oceanic-material")
 Plug("lukas-reineke/indent-blankline.nvim")
-
-
-
-Plug('dgox16/oldworld.nvim')
-Plug('Yazeed1s/minimal.nvim')
-Plug('water-sucks/darkrose.nvim')
+Plug('Shatur/neovim-ayu')
 
 -- language specific plugins
 Plug("posva/vim-vue") -- vue3
@@ -44,8 +38,20 @@ Plug("posva/vim-vue") -- vue3
 vim.call("plug#end")
 
 -- theme
-vim.g.oceanic_material_transparent_background = 1 -- picom compatability
-vim.cmd("colorscheme oceanic_material") -- actual theme
+require('ayu').setup({ -- transparency
+    overrides = {
+        Normal = { bg = "None" },
+        NormalFloat = { bg = "none" },
+        ColorColumn = { bg = "None" },
+        SignColumn = { bg = "None" },
+        Folded = { bg = "None" },
+        FoldColumn = { bg = "None" },
+        CursorLine = { bg = "None" },
+        CursorColumn = { bg = "None" },
+        VertSplit = { bg = "None" },
+    },
+})
+vim.cmd("colorscheme ayu") -- actual theme
 vim.cmd("set fillchars+=stl:\\─,stlnc:\\-") -- line in statusbar
 require("indent_blanklines") -- lines for tabs
 require("mini.diff").setup() -- git visuals

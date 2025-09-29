@@ -137,7 +137,7 @@ bindsym $mod+Shift+r restart
 # resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 
-set $resize_length 40 px
+set $resize_length 80 px
 mode "resize" {
     bindsym  Left   resize  shrink  width   $resize_length
     bindsym  Down   resize  grow    height  $resize_length
@@ -151,22 +151,22 @@ mode "resize" {
 
 # VISUAL SETTINGS
 # wallpaper
-exec_always --no-startup-id sh -c "feh --bg-max ~/.config/.wallpapers/castlevania3.png"
+exec_always --no-startup-id sh -c "feh --bg-max ~/.config/.wallpapers/italia.png"
 
 # colors
-set  $foreground      #d4be98
-set  $background      #1b2b34
-set  $background_alt  #282c34
-set  $red             #ec5f67
-set  $green           #a9b665
-set  $yellow          #d8a657
-set  $blue            #6699cc
-set  $magenta         #c594c5
-set  $cyan            #62b3b2
-set  $gray            #7c6f64
+set  $foreground     #BFBDB6
+set  $background     #0B0E14
+set  $background_alt #0F131A
+set  $red            #D95757
+set  $green          #7FD962
+set  $yellow         #FF8F40
+set  $blue           #39BAE6
+set  $magenta        #D2A6FF
+set  $cyan           #95E6CB
+set  $gray           #636A72
 
 #class                   border  backgr  text         indicator  child_border
-client.focused           $blue   $blue   $background  $magenta   $blue
+client.focused           $blue   $blue   $background  $magenta   $gray
 client.focused_inactive  $gray   $gray   $foreground  $magenta   $gray
 client.unfocused         $gray   $gray   $foreground  $magenta   $gray
 client.urgent            $red    $red    $foreground  $red       $red
