@@ -9,32 +9,34 @@ require("keymaps")
 local Plug = vim.fn["plug#"]
 
 vim.call("plug#begin")
-
-Plug("nvim-mini/mini.nvim")
-Plug("neovim/nvim-lspconfig")
-Plug("williamboman/mason.nvim")
-Plug("williamboman/mason-lspconfig.nvim")
-Plug("lukas-reineke/indent-blankline.nvim")
-Plug('Shatur/neovim-ayu')
-
--- language specific plugins
-Plug("posva/vim-vue") -- vue3
--- Plug("mfussenegger/nvim-jdtls") -- java
--- Plug("elixir-editors/vim-elixir") -- elixir
--- Mason plugins:
-    -- ◍ clangd
-    -- ◍ jdtls
-    -- ◍ omnisharp
-    -- ◍ shellcheck
-    -- ◍ pyright
-    -- ◍ elixir-ls elixirls
-    -- ◍ bash-language-server bashls
-    -- ◍ deno denols
-    -- ◍ eslint-lsp eslint
-    -- ◍ html-lsp html
-    -- ◍ prettier
-    -- ◍ gopls
-
+    -- lsp
+    Plug("nvim-mini/mini.nvim")
+    Plug("neovim/nvim-lspconfig")
+    Plug("williamboman/mason.nvim")
+    Plug("williamboman/mason-lspconfig.nvim")
+    -- file explorer
+    Plug('mikavilpas/yazi.nvim')
+    Plug('nvim-lua/plenary.nvim')
+    -- theme
+    Plug('Shatur/neovim-ayu')
+    Plug("lukas-reineke/indent-blankline.nvim")
+    -- language specific plugins
+    Plug("posva/vim-vue") -- vue3
+    -- Plug("mfussenegger/nvim-jdtls") -- java
+    -- Plug("elixir-editors/vim-elixir") -- elixir
+    -- Mason plugins:
+        -- ◍ clangd
+        -- ◍ jdtls
+        -- ◍ omnisharp
+        -- ◍ shellcheck
+        -- ◍ pyright
+        -- ◍ elixir-ls elixirls
+        -- ◍ bash-language-server bashls
+        -- ◍ deno denols
+        -- ◍ eslint-lsp eslint
+        -- ◍ html-lsp html
+        -- ◍ prettier
+        -- ◍ gopls
 vim.call("plug#end")
 
 -- theme
@@ -82,13 +84,17 @@ vim.opt.softtabstop = 4
 vim.opt.clipboard = "unnamedplus"
 
 -- file explorer
-require("mini.files").setup({
-    mappings = {
-    go_in       = "<S-Right>",
-    go_in_plus  = "<Right>",
-    go_out      = "<S-Left>",
-    go_out_plus = "<Left>",
-    },
+vim.keymap.set("n", "-", function()
+  require("yazi").yazi()
+end)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.api.nvim_create_autocmd({"VimEnter"}, {
+  callback = function(data)
+    if vim.fn.isdirectory(data.file) == 1 then
+      require("yazi").yazi()
+    end
+  end
 })
 
 -- automatic mason lsp config

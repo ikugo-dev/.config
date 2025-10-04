@@ -4,10 +4,12 @@ echo "blacklist pcspkr blacklist snd_pcsp" | sudo tee /etc/modprobe.d/nobeep.con
 
 # basic packages
 sudo pacman -S xorg-xrandr zram-tools xclip psmisc \
-kitty fish gettext less base-devel cmake unzip curl \
-brightnessctl ddcutil gammastep playerctl \
-firefox feh mpv git polybar maim zip filelight bat tree fd \
-libreoffice zathura picom yazi transmission-gtk \
+    man gettext less base-devel cmake unzip curl \
+    brightnessctl ddcutil gammastep playerctl \
+    kitty fish firefox feh mpv git polybar maim zip filelight \
+    libreoffice picom yazi transmission-gtk \
+    bat tree fd zathura zathura-pdf-mupdf \
+    go npm
 
 # yay
 cd ~/.config || exit
@@ -18,7 +20,7 @@ cd .. || exit
 rm -rf yay
 
 # additional aur packages 
-yay stremio zaread i3-swallow-git go npm
+yay stremio i3-swallow-git zaread 
 
 #default shell
 sudo chsh -s "/usr/bin/fish"

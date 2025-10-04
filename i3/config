@@ -2,7 +2,7 @@
 # mod key, font
 set $mod Mod4
 set $scripts "
-font pango:HurmitNerdFont 10
+font pango:Iosevka Nerd Font 10
 
 # STARTUP: i3, polybar, picom, wallpaper
 exec --no-startup-id dex --autostart --environment i3
@@ -11,7 +11,7 @@ exec --no-startup-id picom
 exec --no-startup-id gammastep -l 43.19:21.55 -t 6000:4000
 # change display + startup display
 bindsym $mod+m exec --no-startup-id ~/Code/Scripts/i3/monitor-switch.sh
-exec --no-startup-id sh -c "~/Code/Scripts/i3/monitor-switch.sh"
+exec sh -c "xrandr --output eDP-1 --off --output HDMI-1 --auto"
 
 # change keyboard
 exec_always setxkbmap \
@@ -51,7 +51,10 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # launch apps
-bindsym $mod+d exec --no-startup-id dmenu_run -fn "Terminus-12" -nb "#282A36" -nf "#EFF0EB" -sb "#FF6AC1" -sf "#282A36"
+bindsym $mod+d exec --no-startup-id \
+        dmenu_run -fn "Hurmit Nerd Font-12" \
+            -nb "#0B0E14" -nf "#BFBDB6" -sb "#FF8F40" -sf "#0B0E14" \
+
 
 # change focus
 bindsym $mod+Left focus left
@@ -151,7 +154,7 @@ mode "resize" {
 
 # VISUAL SETTINGS
 # wallpaper
-exec_always --no-startup-id sh -c "feh --bg-max ~/.config/.wallpapers/italia.png"
+exec_always --no-startup-id sh -c "feh --bg-max ~/.config/.wallpapers/italia.jpg"
 
 # colors
 set  $foreground     #BFBDB6
@@ -172,5 +175,5 @@ client.unfocused         $gray   $gray   $foreground  $magenta   $gray
 client.urgent            $red    $red    $foreground  $red       $red
 
 # gaps
-gaps inner 5
+gaps inner 6
 smart_gaps on
