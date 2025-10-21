@@ -11,7 +11,7 @@ exec --no-startup-id picom
 exec --no-startup-id gammastep -l 43.19:21.55 -t 6000:4000
 # change display + startup display
 bindsym $mod+m exec --no-startup-id ~/Code/Scripts/i3/monitor-switch.sh
-exec sh -c "xrandr --output eDP-1 --off --output HDMI-1 --auto"
+exec --no-startup-id sh -c "xrandr --output eDP-1 --off --output HDMI-1 --auto"
 
 # change keyboard
 exec_always setxkbmap \
@@ -30,9 +30,16 @@ exec --no-startup-id sh -c "sleep 1 && xset s off && sleep 1 && xset -dpms && sl
 bindsym $mod+Shift+x exec --no-startup-id ~/Code/Scripts/i3/exit-prompt.sh
 bindsym $mod+Shift+z exec --no-startup-id ~/Code/Scripts/i3/reboot-prompt.sh
 
+# emoji
+bindsym $mod+Shift+d exec ~/Code/Scripts/i3/dmenu-emoji.sh
+
 # audio control
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+
+# bluetooth control
+bindsym $mod+b exec --no-startup-id sh -c "bluetoothctl power on && bluetoothctl connect E8:9E:13:EF:42:60"
+bindsym $mod+Shift+b exec --no-startup-id sh -c "bluetoothctl disconnect && bluetoothctl power off"
 
 # knob audio controls
 bindsym XF86AudioMute exec --no-startup-id playerctl play-pause
