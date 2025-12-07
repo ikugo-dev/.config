@@ -6,6 +6,16 @@ function fish_greeting
     echo "Hello friend!";
     echo -n "The time is "; set_color yellow; date +%T; set_color normal
 end
+
+function y # yazi
+	set tmp (mktemp -t "yazi-cwd.XXXXXX")
+	yazi $argv --cwd-file="$tmp"
+	if read -z cwd < "$tmp"; and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+		builtin cd -- "$cwd"
+	end
+	rm -f -- "$tmp"
+end
+
 fish_vi_key_bindings
 
 abbr --add rename 'mv'
@@ -19,7 +29,6 @@ abbr --add Z 'ls | xargs -n1 swallow zaread'
 abbr --add f 'swallow feh'
 abbr --add F 'swallow feh . -Z'
 abbr --add Fr 'swallow feh . -Z -r'
-abbr --add y 'yazi'
 
 abbr --add cfgf 'nvim ~/.config/fish/config.fish'
 abbr --add cfgi 'nvim ~/.config/i3/config'

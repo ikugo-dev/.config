@@ -44,3 +44,4 @@ text/x-java=nvim.desktop
 text/x-python=nvim.desktop
 application/javascript=nvim.desktop
 text/x-shellscript=nvim.desktop
+x-scheme-handler/discord=vesktop.desktop

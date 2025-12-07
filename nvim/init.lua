@@ -15,12 +15,13 @@ vim.call("plug#begin")
     Plug("williamboman/mason.nvim")
     Plug("williamboman/mason-lspconfig.nvim")
     -- file explorer
-    Plug('mikavilpas/yazi.nvim')
-    Plug('nvim-lua/plenary.nvim')
+    Plug("mikavilpas/yazi.nvim")
+    Plug("nvim-lua/plenary.nvim")
     -- theme
-    Plug('Shatur/neovim-ayu')
+    Plug("Shatur/neovim-ayu")
     Plug("lukas-reineke/indent-blankline.nvim")
     -- language specific plugins
+    Plug("tpope/vim-abolish")
     -- Plug("mfussenegger/nvim-jdtls") -- java
     -- Plug("elixir-editors/vim-elixir") -- elixir
     -- Mason plugins:
