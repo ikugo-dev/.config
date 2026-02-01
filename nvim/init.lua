@@ -21,22 +21,17 @@ vim.call("plug#begin")
     Plug("Shatur/neovim-ayu")
     Plug("lukas-reineke/indent-blankline.nvim")
     -- language specific plugins
-    Plug("tpope/vim-abolish")
-    -- Plug("mfussenegger/nvim-jdtls") -- java
     -- Plug("elixir-editors/vim-elixir") -- elixir
     -- Mason plugins:
-        -- ◍ clangd
-        -- ◍ jdtls
-        -- ◍ omnisharp
-        -- ◍ shellcheck
-        -- ◍ pyright
-        -- ◍ elixir-ls elixirls
         -- ◍ bash-language-server bashls
         -- ◍ deno denols
-        -- ◍ eslint-lsp eslint
-        -- ◍ html-lsp html
-        -- ◍ prettier
         -- ◍ gopls
+        -- ◍ html-lsp html
+        -- ◍ jdtls
+        -- ◍ pyright
+        -- ◍ typescript-language-server ts_ls
+        -- ◍ vtsls
+        -- ◍ vue-language-server vue_ls
 vim.call("plug#end")
 
 -- theme
@@ -111,8 +106,8 @@ require("mason-lspconfig").setup({
   automatic_installation = true,
 })
 
+-- vue lsp manual fixes because its lowk broken
 local vue_language_server_path = vim.fn.stdpath("data") .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
-
 local vue_plugin = {
     name = "@vue/typescript-plugin",
     location = vue_language_server_path,
@@ -123,7 +118,6 @@ vim.lsp.config("vtsls",{
     settings = { vtsls = { tsserver = { globalPlugins = { vue_plugin, }}}},
     filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
 })
-
 vim.lsp.enable("vue_ls")
 vim.lsp.enable("vtsls")
 

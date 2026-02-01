@@ -1,10 +1,3 @@
--- java
--- local config = {
---   cmd = { "/home/alex/.local/share/nvim/mason/bin/jdtls" },
---   root_dir = require("jdtls.setup").find_root({ "gradlew", ".git", "mvnw" }),
--- }
--- require("jdtls").start_or_attach(config)
-
 -- php
 -- vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 --   pattern = "*.blade.php",
@@ -41,3 +34,5 @@
 --     },
 --   },
 -- }
+--
+-- vim.lsp.config.hls.setup({

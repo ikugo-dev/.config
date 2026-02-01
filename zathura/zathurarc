@@ -1,7 +1,7 @@
 set selection-clipboard clipboard
 
-set default-bg                  "#0e1419"
-set default-fg                  "#e5e1cf"
+set default-bg                 "#0e1419"
+set default-fg                 "#e5e1cf"
 set statusbar-fg               "#e5e1cf"
 set statusbar-bg               "#0e1419"
 
@@ -18,29 +18,6 @@ set notification-fg            "#e5e1cf"
 set highlight-color            "#243340"
 set highlight-active-color     "#36a3d9"
 
-# set selection-foreground       "#0e1419"
-# set selection-background       "#243340"
-
 set recolor                    "true"
 set recolor-lightcolor         "#0e1419"
 set recolor-darkcolor          "#e5e1cf"
-
-# set color0  "#000000"
-# set color1  "#ff3333"
-# set color2  "#b8cc52"
-# set color3  "#e6c446"
-# set color4  "#36a3d9"
-# set color5  "#f07078"
-# set color6  "#95e5cb"
-# set color7  "#ffffff"
-# set color8  "#323232"
-# set color9  "#ff6565"
-# set color10 "#e9fe83"
-# set color11 "#fff778"
-# set color12 "#68d4ff"
-# set color13 "#ffa3aa"
-# set color14 "#c7fffc"
-# set color15 "#ffffff"
-
-# set cursor-bg "#f19618"
-# set cursor-fg "#0e1419"

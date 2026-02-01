@@ -9,7 +9,8 @@ sudo pacman -S xorg-xrandr zram-tools xclip psmisc \
     kitty fish firefox feh mpv git polybar maim zip filelight \
     libreoffice picom yazi transmission-gtk \
     bat tree fd zathura zathura-pdf-mupdf \
-    go npm
+    go npm python \
+    noto-fonts-cjk wine
 
 # yay
 cd ~/.config || exit
@@ -20,7 +21,7 @@ cd .. || exit
 rm -rf yay
 
 # additional aur packages 
-yay stremio i3-swallow-git zaread 
+yay stremio i3-swallow-git zaread i3lock-color
 
 #default shell
 sudo chsh -s "/usr/bin/fish"

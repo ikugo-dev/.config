@@ -1,5 +1,6 @@
-
 [Default Applications]
+application/vnd.oasis.opendocument.image=feh.desktop
+image/*=feh.desktop
 application/pdf=zaread.desktop
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=zaread.desktop
 application/vnd.openxmlformats-officedocument.spreadsheetml.template=zaread.desktop
@@ -31,7 +32,6 @@ application/vnd.oasis.opendocument.chart-template=zaread.desktop
 application/vnd.oasis.opendocument.formula=zaread.desktop
 application/vnd.oasis.opendocument.formula-template=zaread.desktop
 application/vnd.oasis.opendocument.database=zaread.desktop
-application/vnd.oasis.opendocument.image=zaread.desktop
 application/vnd.ms-3mfdocument=zaread.desktop
 application/x-appleworks-document=zaread.desktop
 application/msword=zaread.desktop
