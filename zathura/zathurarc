@@ -21,3 +21,7 @@ set highlight-active-color     "#36a3d9"
 set recolor                    "true"
 set recolor-lightcolor         "#0e1419"
 set recolor-darkcolor          "#e5e1cf"
+
+# dont know why i need to add this
+map <PageUp> scroll full-up
+map <PageDown> scroll full-down

@@ -69,6 +69,10 @@ vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.colorcolumn = "100"
 
+-- soft wrap
+vim.opt.wrap = true
+vim.opt.linebreak = true
+
 -- tab bullshit
 vim.opt.expandtab = true
 vim.opt.tabstop = 4

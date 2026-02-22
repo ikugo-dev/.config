@@ -25,7 +25,7 @@ abbr --add vim 'nvim'
 abbr --add :q 'exit'
 abbr --add :wq 'exit'
 abbr --add z 'swallow zaread'
-abbr --add Z 'ls | xargs -n1 swallow zaread'
+abbr --add Z 'find -type f -name "*.pdf" -print0 | xargs -0 -n1 swallow zaread'
 abbr --add f 'swallow feh'
 abbr --add F 'swallow feh . -Z'
 abbr --add Fr 'swallow feh . -Z -r'
@@ -43,7 +43,7 @@ abbr --add cfgs 'nvim ~/.config/setup.sh'
 abbr --add cfgS 'nvim ~/Code/Scripts'
 
 abbr --add autoremove 'sudo pacman -Qdtq | sudo pacman -Rs -'
-abbr --add p2j 'fd -e .pdf | xargs -n1 pdftojpg.sh' 
+abbr --add p2j 'fd -e .pdf | xargs -n1 pdftojpg' 
 abbr --add comic 'curl -H "X-TERMINAL-ROWS: $(tput lines)" -H "X-TERMINAL-COLUMNS: $(tput cols)" https://xkcd.massi.rocks/comics/random'
 
 # Created by `pipx` on 2025-07-13 20:24:27
