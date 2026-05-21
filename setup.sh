@@ -8,7 +8,7 @@ sudo pacman -S xorg-xrandr zram-tools xclip psmisc \
     brightnessctl ddcutil gammastep playerctl \
     kitty fish firefox feh mpv git polybar maim zip filelight \
     libreoffice picom yazi transmission-gtk \
-    bat tree fd zathura zathura-pdf-mupdf \
+    bat tree zathura zathura-pdf-mupdf \
     go npm python \
     noto-fonts-cjk wine
 
@@ -23,7 +23,7 @@ rm -rf yay
 # additional aur packages 
 yay stremio i3-swallow-git zaread i3lock-color
 
-#default shell
+# default shell
 sudo chsh -s "/usr/bin/fish"
 
 # fonts

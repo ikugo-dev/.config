@@ -32,7 +32,10 @@ abbr --add Fr 'swallow feh . -Z -r'
 
 abbr --add gccm 'gcc main.c -o a'
 abbr --add pp 'python3 src/main.py'
+abbr --add d 'sudo docker'
+abbr --add D 'sudo docker-compose'
 
+abbr --add cfg  'nvim ~/.config/'
 abbr --add cfgf 'nvim ~/.config/fish/config.fish'
 abbr --add cfgi 'nvim ~/.config/i3/config'
 abbr --add cfgp 'nvim ~/.config/polybar/modules.ini'

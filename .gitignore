@@ -1,7 +1,6 @@
-autostart
 dconf
 go
-pavucontrol.ini
 pulse
-user-dirs.dirs
-user-dirs.locale
+PCSX2/
+qBittorrent/
+vesktop/
