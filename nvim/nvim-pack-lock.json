@@ -1,0 +1,36 @@
+{
+  "plugins": {
+    "indent-blankline.nvim": {
+      "rev": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03",
+      "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
+    },
+    "mason-lspconfig.nvim": {
+      "rev": "7b01e2974a47d489bb92f47a41e4c0088ea8f86e",
+      "src": "https://github.com/mason-org/mason-lspconfig.nvim"
+    },
+    "mason.nvim": {
+      "rev": "cbf8d285e1462dd24acf3507817be2bbcb035919",
+      "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "mini.nvim": {
+      "rev": "264b5c8fc6e82212af0dc5c345145cfa916efeb6",
+      "src": "https://github.com/nvim-mini/mini.nvim"
+    },
+    "neovim-ayu": {
+      "rev": "e5a9f0fa2918d6b5f57c21b3ac014314ee5e41c8",
+      "src": "https://github.com/Shatur/neovim-ayu"
+    },
+    "nvim-lspconfig": {
+      "rev": "deb0df61b2d6691e745b16a42755e10ad38218e9",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "plenary.nvim": {
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "yazi.nvim": {
+      "rev": "ce56cb1534a4192eaf13a2f8fb2c1cdfc553e5f2",
+      "src": "https://github.com/mikavilpas/yazi.nvim"
+    }
+  }
+}

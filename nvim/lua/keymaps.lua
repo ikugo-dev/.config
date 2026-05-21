@@ -1,43 +1,26 @@
 local map = vim.keymap.set
 
--- fuck this
-map('n', 'q:', '<Nop>', { noremap = true, silent = true })
-
--- change buffers (tabs)
-map("n", "<A-Left>", "<cmd>bprevious<cr>", { desc = "Prev Buffer", remap = true })
-map("n", "<A-Right>", "<cmd>bnext<cr>", { desc = "Next Buffer", remap = true })
-
--- append line below to the end of the current line
-map("n", "<S-Up>", "J", { desc = "Append Up", remap = true })
-
--- view definition
-map("n", "<S-Down>", "K", { desc = "View definition", remap = true })
-
--- change 2 tabs to 4
-map( "n", "<leader>ci", [[:%s/^\(  \)\+/\=repeat(' ', len(submatch(0)) * 2)/g<CR>]], { noremap = true, silent = true, desc = "Increase tab size" })
-
--- file explorer
+map("n", "q:", "<Nop>", { silent = true }) -- fuck this
+map("n", "<S-Up>", "J", { silent = true }) -- append line
 map("n", "-", function()
-      local buf_name = vim.api.nvim_buf_get_name(0)
-      local path = vim.fn.filereadable(buf_name) == 1 and buf_name or vim.fn.getcwd()
-      MiniFiles.open(path)
-      MiniFiles.reveal_cwd()
-    end, { desc = "Open Mini Files" }
-)
+	require("yazi").yazi()
+end)
 
--- map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
--- map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
--- vim.cmd("nnoremap gd :lua vim.lsp.buf.definition()<CR>")
---
+map("n", "gd", vim.lsp.buf.definition, { silent = true })
+map("n", "gD", vim.lsp.buf.declaration, { silent = true })
+map("n", "gr", vim.lsp.buf.references, { silent = true })
+map("n", "gi", vim.lsp.buf.implementation, { silent = true })
+map("n", "<S-Down>", vim.lsp.buf.hover, { silent = true })
+map("n", "<Space>ca", vim.lsp.buf.code_action, { silent = true })
+map("n", "<Space>cr", vim.lsp.buf.rename, { silent = true })
+map("n", "<Space>cf", vim.lsp.buf.format, { silent = true })
+map("n", "<C-Down>", vim.diagnostic.open_float, { silent = true })
 
--- -- move to window using the <ctrl> arrow keys
--- map("n", "<C-Up>", "<C-w>k", { desc = "Go to Left Window", remap = true })
--- map("n", "<C-Down>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
--- map("n", "<C-Left>", "<C-w>h", { desc = "Go to Upper Window", remap = true })
--- map("n", "<C-Right>", "<C-w>l", { desc = "Go to Right Window", remap = true })
-
--- resize window using <ctrl> hjkl keys
--- map("n", "<C-h>", "<cmd>resize +2<cr>", { desc = "Increase Window Height", remap = true })
--- map("n", "<C-j>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height", remap = true })
--- map("n", "<C-k>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width", remap = true })
--- map("n", "<C-l>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width", remap = true })
+require("mini.move").setup({ -- move lines around with Alt
+    mappings = {
+        left       = "<M-Left>",  line_left = "<M-Left>",
+        line_right = "<M-Right>", right     = "<M-Right>",
+        line_down  = "<M-Down>",  down      = "<M-Down>",
+        line_up    = "<M-Up>",    up        = "<M-Up>",
+    },
+})
