@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # fuck that beep sound
 echo "blacklist pcspkr" | sudo tee /etc/modprobe.d/nobeep.conf
 

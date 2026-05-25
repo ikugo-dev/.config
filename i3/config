@@ -13,11 +13,6 @@ exec --no-startup-id gammastep -l 43.19:21.55 -t 6000:4000
 bindsym $mod+m exec --no-startup-id dash ~/Code/Scripts/i3/monitor-switch.sh
 exec --no-startup-id dash -c "xrandr --output eDP-1 --off --output HDMI-1 --auto"
 
-# change keyboard
-exec_always setxkbmap \
-                 -layout  us,colemak-dh-arts,rs,rs \
-                 -variant basic,basic,latin,basic \
-                 -option  'grp:win_space_toggle',caps:backspace \
 # brightness
 bindsym  XF86MonBrightnessUp    exec  --no-startup-id  brightnessctl  set  +5%
 bindsym  XF86MonBrightnessDown  exec  --no-startup-id  brightnessctl  set  5%-
@@ -101,8 +96,8 @@ set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "s1"
-set $ws10 "s2"
+set $ws9 "9"
+set $ws10 "0"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -137,8 +132,8 @@ workspace $ws5  output HDMI-A-0
 workspace $ws6  output HDMI-A-0
 workspace $ws7  output HDMI-A-0
 workspace $ws8  output HDMI-A-0
-workspace $ws9  output eDP
-workspace $ws10 output eDP
+workspace $ws9  output HDMI-A-0
+workspace $ws10 output HDMI-A-0
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
