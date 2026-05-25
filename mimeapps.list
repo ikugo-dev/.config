@@ -549,7 +549,7 @@ application/x.systemd-home=zaread.desktop
 application/x.systemd-hwdb=zaread.desktop
 application/x.systemd-journal=zaread.desktop
 application/x.systemd-sysext=zaread.desktop
-application/xhtml+xml=firefox.desktop
+application/xhtml+xml=zaread.desktop
 application/xliff+xml=zaread.desktop
 application/xml=zaread.desktop
 application/xml-dtd=zaread.desktop
@@ -705,7 +705,7 @@ text/css=nvim.desktop
 text/csv=nvim.desktop
 text/csv-schema=nvim.desktop
 text/enriched=nvim.desktop
-text/html=firefox.desktop
+text/html=nvim.desktop
 text/htmlh=nvim.desktop
 text/javascript=nvim.desktop
 text/jscript.encode=nvim.desktop
@@ -863,6 +863,8 @@ application/x-extension-html=firefox.desktop
 application/x-extension-shtml=firefox.desktop
 application/x-extension-xhtml=firefox.desktop
 application/x-extension-xht=firefox.desktop
+x-scheme-handler/stremio=stremio-enhanced.desktop
+image/x-gtk-path-animation=feh.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;

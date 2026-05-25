@@ -10,8 +10,8 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id picom
 exec --no-startup-id gammastep -l 43.19:21.55 -t 6000:4000
 # change display + startup display
-bindsym $mod+m exec --no-startup-id ~/Code/Scripts/i3/monitor-switch.sh
-exec --no-startup-id sh -c "xrandr --output eDP-1 --off --output HDMI-1 --auto"
+bindsym $mod+m exec --no-startup-id dash ~/Code/Scripts/i3/monitor-switch.sh
+exec --no-startup-id dash -c "xrandr --output eDP-1 --off --output HDMI-1 --auto"
 
 # change keyboard
 exec_always setxkbmap \
@@ -23,24 +23,24 @@ bindsym  XF86MonBrightnessUp    exec  --no-startup-id  brightnessctl  set  +5%
 bindsym  XF86MonBrightnessDown  exec  --no-startup-id  brightnessctl  set  5%-
 
 # lock the screen and dont make my screen black, hoe
-bindsym $mod+l exec --no-startup-id ~/Code/Scripts/i3/lockscript.sh
-exec --no-startup-id sh -c "sleep 1 && xset s off && sleep 1 && xset -dpms && sleep 1 && xset s noblank"
+bindsym $mod+l exec --no-startup-id dash ~/Code/Scripts/i3/lockscript.sh
+exec --no-startup-id dash -c "sleep 1 && xset s off && sleep 1 && xset -dpms && sleep 1 && xset s noblank"
 
 # turn off pc
-bindsym $mod+Shift+x exec --no-startup-id ~/Code/Scripts/i3/exit-prompt.sh
-bindsym $mod+Shift+z exec --no-startup-id ~/Code/Scripts/i3/reboot-prompt.sh
+bindsym $mod+Shift+x exec --no-startup-id dash ~/Code/Scripts/i3/exit-prompt.sh
+bindsym $mod+Shift+z exec --no-startup-id dash ~/Code/Scripts/i3/reboot-prompt.sh
 
 # emoji
-bindsym $mod+Shift+d exec ~/Code/Scripts/i3/dmenu-emoji.sh
+bindsym $mod+Shift+d exec dash ~/Code/Scripts/i3/dmenu-emoji.sh
 
 # audio control
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 
 # bluetooth control
-bindsym $mod+b exec --no-startup-id sh -c "bluetoothctl power on && bluetoothctl connect E8:9E:13:EF:42:60"
-bindsym $mod+Ctrl+b exec --no-startup-id sh -c "bluetoothctl power on && bluetoothctl connect 00:00:00:7F:FB:AA"
-bindsym $mod+Shift+b exec --no-startup-id sh -c "bluetoothctl disconnect && bluetoothctl power off"
+bindsym $mod+b exec --no-startup-id dash -c "bluetoothctl power on && bluetoothctl connect E8:9E:13:EF:42:60"
+bindsym $mod+Ctrl+b exec --no-startup-id dash -c "bluetoothctl power on && bluetoothctl connect 00:00:00:7F:FB:AA"
+bindsym $mod+Shift+b exec --no-startup-id dash -c "bluetoothctl disconnect && bluetoothctl power off"
 
 # knob audio controls
 bindsym XF86AudioMute exec --no-startup-id playerctl play-pause
@@ -162,7 +162,7 @@ mode "resize" {
 
 # VISUAL SETTINGS
 # wallpaper
-exec_always --no-startup-id sh -c "feh --bg-max ~/.config/.wallpapers/italia.jpg"
+exec_always --no-startup-id dash -c "feh --bg-max ~/.config/.wallpapers/italia.jpg"
 
 # colors
 set  $foreground     #BFBDB6

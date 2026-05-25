@@ -23,7 +23,7 @@ vim.pack.add({
 })
 
 -- theme
-require('ayu').setup({ -- transparency
+require("ayu").setup({ -- transparency
     overrides = {
         Normal = { bg = "None" },
         NormalFloat = { bg = "none" },

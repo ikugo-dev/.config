@@ -28,6 +28,10 @@
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
+    "vim-visual-star-search": {
+      "rev": "7c32edb9e3c85d473d9be4dec721a4c9d5d4d69c",
+      "src": "https://github.com/bronson/vim-visual-star-search"
+    },
     "yazi.nvim": {
       "rev": "ce56cb1534a4192eaf13a2f8fb2c1cdfc553e5f2",
       "src": "https://github.com/mikavilpas/yazi.nvim"
