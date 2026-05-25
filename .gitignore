@@ -1,6 +1,6 @@
 dconf
-go
 pulse
 PCSX2/
 qBittorrent/
-vesktop/
+fish/fish_variables
+mozilla/firefox/*.default
