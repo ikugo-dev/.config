@@ -15,8 +15,16 @@
   time.timeZone = "Europe/Belgrade";
   i18n.defaultLocale = "en_US.UTF-8";
   services.xserver.xkb = {
-      layout = "us";
-      variant = "";
+    layout = "us,colemak-dh-arts,rs,rs";
+    variant = "basic,basic,latin,basic";
+    options = "grp:win_space_toggle,caps:backspace";
+    extraLayouts = {
+      colemak-dh-arts = {
+        description = "Colemak-DH with ARTS layout";
+        languages = [ "eng" ];
+        symbolsFile = ./layouts/colemak-dh-arts;
+      };
+    };
   };
 
   users.users.alex = {

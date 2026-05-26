@@ -1,21 +1,18 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
-#TODO fix echo calls for newline characters
 # fuck that beep sound
 echo "blacklist pcspkr blacklist snd_pcsp" | sudo tee /etc/modprobe.d/nobeep.conf
 
 # basic packages
-sudo pacman -S xorg-xrandr zram-tools xclip psmisc \
-    man gettext less base-devel cmake unzip curl \
-    brightnessctl ddcutil gammastep playerctl \
-    kitty fish firefox feh mpv git polybar maim zip filelight \
-    libreoffice picom yazi qbittorrent \
-    bat tree zathura zathura-pdf-mupdf \
-    go npm python \
-    noto-fonts-cjk wine
+sudo pacman -S \
+    xorg-xrandr psmisc file man brightnessctl ddcutil playerctl bluez dash \ # system
+    polybar picom i3lock-color noto-fonts-cjk \ # visuals
+    neovim xclip git kitty nix \ # coding 
+    zip unzip gammastep i3-swallow tree maim \ # qol
+    yazi mpv feh zathura libreoffice filelight qbittorrent # media
 
 # yay
-cd ~/.config || exit
+sudo pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
 cd yay || exit
 makepkg -si
@@ -23,7 +20,7 @@ cd .. || exit
 rm -rf yay
 
 # additional aur packages 
-yay stremio i3-swallow-git zaread i3lock-color
+yay stremio-enhanced-bin ripcord i3-swallow-git zaread i3lock-color
 
 # default shell
 sudo chsh -s "/usr/bin/fish"
@@ -43,3 +40,9 @@ echo -e "[Icon Theme]\nName=Numix-Cursor\nInherits=Numix-Cursor" \
 rm -rf numix-cursor
 export XCURSOR_THEME=Numix-Cursor
 export XCURSOR_SIZE=16   
+
+
+echo "Things left to do:"
+echo " - Set up zswap https://wiki.archlinux.org/title/Zswap"
+echo " - Check if nvidia-smi & nvidia prime are set up properly"
+echo " - Check if pulseaudio is set up & if bluetoothctl is avaliable"
