@@ -20,7 +20,7 @@ cd .. || exit
 rm -rf yay
 
 # additional aur packages 
-yay stremio-enhanced-bin ripcord i3-swallow-git zaread i3lock-color
+yay stremio-linux-shell ripcord i3-swallow-git zaread i3lock-color
 
 # default shell
 sudo chsh -s "/usr/bin/fish"
