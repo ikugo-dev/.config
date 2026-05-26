@@ -6,12 +6,12 @@ font pango:Iosevka Nerd Font 10
 
 # STARTUP: i3, polybar, picom, wallpaper
 exec --no-startup-id dex --autostart --environment i3
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id dash -c "~/.config/polybar/launch.sh && sleep 1 && polybar-msg action pipewire hook 0"
 exec --no-startup-id picom
 exec --no-startup-id gammastep -l 43.19:21.55 -t 6000:4000
 # change display + startup display
 bindsym $mod+m exec --no-startup-id dash ~/Code/Scripts/i3/monitor-switch.sh
-exec --no-startup-id dash -c "xrandr --output eDP-1 --off --output HDMI-1 --auto"
+exec --no-startup-id dash -c "xrandr --output eDP --off --output HDMI-A-0 --auto"
 
 # brightness
 bindsym  XF86MonBrightnessUp    exec  --no-startup-id  brightnessctl  set  +5%

@@ -2,5 +2,5 @@ dconf
 pulse
 PCSX2/
 qBittorrent/
-fish/fish_variables
+./fish/fish_variables
 mozilla/firefox/*.default

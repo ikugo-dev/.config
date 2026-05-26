@@ -1,0 +1,27 @@
+[opener]
+image = [
+    { run = 'feh "$@"', orphan = true }
+]
+
+video = [
+    { run = 'mpv "$@"', orphan = true }
+]
+
+text = [
+    { run = 'nvim "$@"', block = true }
+]
+
+reader = [
+    { run = 'zaread "$@"', orphan = true }
+]
+
+[open]
+rules = [
+    { mime = "image/*", use = "image" },
+    { mime = "video/*", use = "video" },
+    { mime = "text/*",  use = "text"  },
+
+    { mime = "application/epub+zip", use = "reader" },
+    { mime = "application/pdf", use = "reader" },
+    { mime = "application/x-mobipocket-ebook", use = "reader" },
+]
