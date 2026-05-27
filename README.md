@@ -7,7 +7,8 @@
 
 |  Type            |  Program       |
 |------------------|----------------|
-|  Distro          |  NixOS         |
+|  Distro          |  Arch          |
+|  Package Manager |  yay           |
 |  WM+DE           |  i3            |
 |  Compositor      |  picom         |
 |  Bar             |  polybar       |

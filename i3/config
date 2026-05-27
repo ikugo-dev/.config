@@ -10,21 +10,21 @@ exec_always --no-startup-id dash ~/.config/polybar/launch.sh
 exec --no-startup-id picom
 exec --no-startup-id gammastep -l 43.19:21.55 -t 6000:4000
 # change display + startup display
-bindsym $mod+m exec --no-startup-id dash ~/Code/Scripts/i3/monitor-switch.sh
-exec --no-startup-id dash -c "xrandr --output eDP --off --output HDMI-A-0 --auto"
+bindsym $mod+m exec dash ~/Code/Scripts/i3/monitor-switch.sh
+exec --no-startup-id dash -c "xrandr --output eDP-1 --off --output HDMI-1 --auto"
 
 # change keyboard
-# exec_always setxkbmap \
-     # -layout  us,colemak-dh-arts,rs,rs \
-     # -variant basic,basic,latin,basic \
-     # -option  'grp:win_space_toggle',caps:backspace \
+exec_always --no-startup-id setxkbmap \
+     -layout  us,colemak-dh-arts,rs,rs \
+     -variant basic,basic,latin,basic \
+     -option  'grp:win_space_toggle',caps:backspace \
 
 # brightness
 bindsym  XF86MonBrightnessUp    exec  --no-startup-id  brightnessctl  set  +5%
 bindsym  XF86MonBrightnessDown  exec  --no-startup-id  brightnessctl  set  5%-
 
 # lock the screen and dont make my screen black, hoe
-bindsym $mod+l exec --no-startup-id dash ~/Code/Scripts/i3/lockscript.sh
+bindsym $mod+l exec dash ~/Code/Scripts/i3/lockscript.sh
 exec --no-startup-id dash -c "sleep 1 && xset s off && sleep 1 && xset -dpms && sleep 1 && xset s noblank"
 
 # turn off pc
@@ -35,8 +35,8 @@ bindsym $mod+Shift+z exec --no-startup-id dash ~/Code/Scripts/i3/reboot-prompt.s
 bindsym $mod+Shift+d exec dash ~/Code/Scripts/i3/dmenu-emoji.sh
 
 # audio control
-bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id dash -c "wpctl set-volume @DEFAULT_SINK@ 5%+ && polybar-msg action pipewire hook 0"
+bindsym XF86AudioLowerVolume exec --no-startup-id dash -c "wpctl set-volume @DEFAULT_SINK@ 5%- && polybar-msg action pipewire hook 0"
 bindsym XF86AudioMute exec --no-startup-id playerctl play-pause
 bindsym XF86AudioPlay exec --no-startup-id playerctl play
 bindsym XF86AudioPause exec --no-startup-id playerctl pause

@@ -3,4 +3,6 @@ pulse
 PCSX2/
 qBittorrent/
 fish/fish_variables
-mozilla/firefox/*.default
+mozilla/
+systemd/
+go/

@@ -5,11 +5,16 @@ echo "blacklist pcspkr blacklist snd_pcsp" | sudo tee /etc/modprobe.d/nobeep.con
 
 # basic packages
 sudo pacman -S \
-    xorg-xrandr psmisc file man brightnessctl ddcutil playerctl bluez dash \ # system
-    polybar picom i3lock-color noto-fonts-cjk \ # visuals
-    neovim xclip git kitty nix \ # coding 
-    zip unzip gammastep i3-swallow tree maim \ # qol
-    yazi mpv feh zathura libreoffice filelight qbittorrent # media
+    # system
+    xorg-xrandr psmisc file man brightnessctl ddcutil playerctl bluez dash \
+    # visuals
+    polybar picom noto-fonts-cjk bibata-cursor-theme \
+    # coding (go for yay, npm for lsp)
+    firefox neovim xclip git kitty fish go npm \
+    # qol
+    zip unzip gammastep tree maim \
+    # media
+    yazi mpv feh zathura zathura-pdf-mupdf libreoffice-still filelight qbittorrent
 
 # yay
 sudo pacman -S --needed git base-devel
@@ -20,10 +25,18 @@ cd .. || exit
 rm -rf yay
 
 # additional aur packages 
-yay stremio-linux-shell ripcord i3-swallow-git zaread i3lock-color
+yay stremio-linux-shell
+yay ripcord
+yay i3-swallow-git
+yay i3lock-color
+yay zaread-git
+
+# nix
+sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
 
 # default shell
-sudo chsh -s "/usr/bin/fish"
+sudo chsh -s "$(which fish)"
+chsh -s "$(which fish)"
 
 # fonts
 sudo cp -r ./fonts ~/.local/share/fonts
@@ -33,14 +46,11 @@ fc-cache
 sudo cp ~/.config/colemak-dh-arts /usr/share/X11/xkb/symbols/
 
 # cursor
-git clone https://github.com/uloco/numix-cursor.git
-sudo mv numix-cursor/theme/Numix-Cursor /usr/share/icons
-echo -e "[Icon Theme]\nName=Numix-Cursor\nInherits=Numix-Cursor" \
-    > /usr/share/icons/default/index.theme   
-rm -rf numix-cursor
-export XCURSOR_THEME=Numix-Cursor
-export XCURSOR_SIZE=16   
+echo -e "[Icon Theme]\nName=Bibata\nInherits=Inherits=Bibata-Modern-Amber" \
+    | sudo tee /usr/share/icons/default/index.theme   
 
+# relink sh to dash
+sudo ln -sfT dash /usr/bin/sh
 
 echo "Things left to do:"
 echo " - Set up zswap https://wiki.archlinux.org/title/Zswap"
