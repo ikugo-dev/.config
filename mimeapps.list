@@ -865,6 +865,7 @@ application/x-extension-xhtml=zaread.desktop
 application/x-extension-xht=zaread.desktop
 x-scheme-handler/stremio=stremio-enhanced.desktop
 image/x-gtk-path-animation=feh.desktop
+text/x-shellscript=nvim.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;

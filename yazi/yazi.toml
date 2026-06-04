@@ -1,27 +1,19 @@
 [opener]
-image = [
-    { run = 'feh "$@"', orphan = true }
-]
-
-video = [
-    { run = 'mpv "$@"', orphan = true }
-]
-
-text = [
-    { run = 'nvim "$@"', block = true }
-]
-
-reader = [
-    { run = 'zaread "$@"', orphan = true }
-]
+vesktop = [ { run = 'vesktop %s1',  for   =   "unix" }      ]          
+feh     = [ { run = 'swallow feh    %s1', for =      "unix" } ]        
+zaread  = [ { run = 'swallow zaread %s1', for =      "unix" } ]        
+mpv     = [ { run = 'swallow mpv    %s1', for =      "unix" } ]        
+nvim    = [ { run = 'nvim    %s1',  block =   true,  for    = "unix" } ]
+unzip   = [ { run = 'unzip   %s1',  for   =   "unix" }      ]          
 
 [open]
 rules = [
-    { mime = "image/*", use = "image" },
-    { mime = "video/*", use = "video" },
-    { mime = "text/*",  use = "text"  },
-
-    { mime = "application/epub+zip", use = "reader" },
-    { mime = "application/pdf", use = "reader" },
-    { mime = "application/x-mobipocket-ebook", use = "reader" },
+    { mime = "application/vnd.oasis.opendocument.image", use = "feh" },
+    { mime = "application/*zip*", use = "unzip" },
+    { mime = "x-scheme-handler/discord", use = "vesktop" },
+    { mime = "application/*", use = "zaread" },
+    { mime = "string", use = "zaread" },
+    { mime = "image/*", use = "feh" },
+    { mime = "video/*", use = "mpv" },
+    { mime = "text/*", use = "nvim" },
 ]
