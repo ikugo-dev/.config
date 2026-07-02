@@ -12,7 +12,7 @@ sudo pacman -S \
     # fonts
     ttf-liberation noto-fonts noto-fonts-cjk \
     # coding (go for yay, npm for lsp)
-    firefox neovim xclip git kitty fish go npm \
+    firefox neovim xclip git kitty go npm \
     # qol
     zip unzip gammastep tree maim \
     # media
@@ -39,10 +39,6 @@ yay zaread-git
 mkfifo /tmp/nix_setup;
 curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install > /tmp/nix_setup
 sh /tmp/nix_setup
-
-# default shell
-sudo chsh -s "$(which fish)"
-chsh -s "$(which fish)"
 
 # fonts
 sudo cp -r ./fonts ~/.local/share/fonts

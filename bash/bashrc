@@ -1,0 +1,41 @@
+#
+# ~/.bashrc
+#
+
+[[ $- != *i* ]] && return
+
+echo "Hello friend!"
+printf "The time is \e[33m%s\e[0m\n" "$(date +%T)"
+
+y() {
+    local tmp cwd
+    tmp=$(mktemp -t yazi-cwd.XXXXXX)
+    yazi "$@" --cwd-file="$tmp"
+    if IFS= read -r cwd < "$tmp" &&
+        [[ -n $cwd && $cwd != "$PWD" ]]; then
+        builtin cd -- "$cwd" || exit
+    fi
+    rm -f -- "$tmp"
+}
+
+export EDITOR=nvim
+export VISUAL=nvim
+
+eval "$(fzf --bash)"
+#
+# Use bash-completion, if available, and avoid double-sourcing
+[[ $PS1 && ! ${BASH_COMPLETION_VERSINFO:-} &&
+  -f /usr/share/bash-completion/bash_completion ]] &&
+    . /usr/share/bash-completion/bash_completion
+
+CONFIG="$HOME"/.config/bash
+
+source "$CONFIG"/bash-powerline.sh
+source "$CONFIG"/alias/bash.sh
+source "$CONFIG"/alias/git.sh
+
+# source "$CONFIG"/fzf-bash-completion.sh
+# bind -x '"\t": fzf_bash_completion'
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'

@@ -46,8 +46,6 @@ abbr --add cfgS "nvim ~/Code/Scripts"
 abbr --add cfgn "nvim ~/.config/nixos/"
 
 abbr --add autoremove "sudo pacman -Qdtq | sudo pacman -Rs -"
-abbr --add p2j "fd -e .pdf | xargs -n1 pdftojpg" 
+abbr --add p2j "find -name '*.pdf' | xargs -n1 pdftojpg" 
+abbr --add a2p "find . -type f -name '*.ppt' -exec soffice --convert-to pdf {} \;"
 abbr --add comic "curl -H 'X-TERMINAL-ROWS: $(tput lines)' -H 'X-TERMINAL-COLUMNS: $(tput cols)' https://xkcd.massi.rocks/comics/random"
-
-# Created by `pipx` on 2025-07-13 20:24:27
-set PATH $PATH /home/alex/.local/bin

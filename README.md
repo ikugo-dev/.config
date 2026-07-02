@@ -13,7 +13,7 @@
 |  Compositor      |  picom         |
 |  Bar             |  polybar       |
 |  Browser         |  firefox       |
-|  Shell           |  fish          |
+|  Shell           |  bash          |
 |  Terminal        |  kitty         |
 |  IDE             |  nvim          |
 |  Image viewer    |  feh           |

@@ -1,21 +1,9 @@
 #!/usr/bin/env sh
-
-
 sudo pacman -S \
-    qemu-base \
+    qemu-full \
     virt-manager \
-    polkit \
     dnsmasq \
-    qemu-hw-display-virtio-gpu-pci-rutabaga \
-    qemu-hw-display-virtio-gpu-rutabaga \
-    qemu-hw-display-virtio-vga-rutabaga \
-    qemu-hw-display-virtio-gpu-pci-gl \
-    qemu-hw-display-virtio-gpu-pci \
-    qemu-hw-display-virtio-gpu-gl \
-    qemu-hw-display-virtio-vga-gl \
-    qemu-hw-display-virtio-gpu \
-    qemu-hw-display-virtio-vga
-
+    polkit
 
 sudo systemctl start libvirtd.service 
 sudo systemctl enable libvirtd.service 
@@ -23,12 +11,14 @@ sudo systemctl start virtlogd.service
 sudo systemctl enable virtlogd.service 
 sudo systemctl start polkit-agent-helper.socket 
 sudo systemctl enable polkit-agent-helper.socket 
+echo Enabled and started: \[libvirtd.service, virtlogd.service, polkit-agent-helper.socket\]
 
+echo started network default with virsh
 sudo virsh net-start default
 
-printf '\nfirewall_backend = "iptables"  ' \
+printf 'firewall_backend = "iptables"' \
     | sudo tee /etc/libvirt/network.conf
+echo Added \'firewall_backend = "iptables"\' to /etc/libvirt/network.conf
 
-
-echo "Add 'libvirt' to user group"
-groups "$USER"
+echo Make sure 'libvirt' is in your user group
+echo Curent groups "$(groups "$USER")"
