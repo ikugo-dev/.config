@@ -22,20 +22,20 @@ export EDITOR=nvim
 export VISUAL=nvim
 
 eval "$(fzf --bash)"
-#
-# Use bash-completion, if available, and avoid double-sourcing
-[[ $PS1 && ! ${BASH_COMPLETION_VERSINFO:-} &&
-  -f /usr/share/bash-completion/bash_completion ]] &&
-    . /usr/share/bash-completion/bash_completion
 
 CONFIG="$HOME"/.config/bash
-
 source "$CONFIG"/bash-powerline.sh
 source "$CONFIG"/alias/bash.sh
 source "$CONFIG"/alias/git.sh
 
-# source "$CONFIG"/fzf-bash-completion.sh
-# bind -x '"\t": fzf_bash_completion'
-
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+
+bind "set show-all-if-ambiguous on"
+bind "set menu-complete-display-prefix on"
+
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+bind '"^I": fzf_completion'
+bind 'TAB: menu-complete'
+bind '"\e[Z": menu-complete-backward'
