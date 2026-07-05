@@ -18,6 +18,7 @@ abbrev-alias -g D="sudo docker-compose"
 
 abbrev-alias -g cfg="nvim ~/.config/"
 abbrev-alias -g cfgf="nvim ~/.config/fish/config.fish"
+abbrev-alias -g cfgb="nvim ~/.config/bash/bashrc"
 abbrev-alias -g cfgi="nvim ~/.config/i3/config"
 abbrev-alias -g cfgp="nvim ~/.config/polybar/modules.ini"
 abbrev-alias -g cfgk="nvim ~/.config/kitty/kitty.conf"
