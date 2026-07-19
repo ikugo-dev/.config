@@ -11,16 +11,8 @@ vim.pack.add({
     "https://github.com/vieitesss/miniharp.nvim",
     -- Mason plugins:
     -- ◍ bash-language-server bashls
-    -- ◍ clangd
-    -- ◍ deno denols
     -- ◍ gopls
-    -- ◍ haskell-language-server hls
-    -- ◍ html-lsp html
-    -- ◍ jdtls
-    -- ◍ pyright
     -- ◍ shellcheck
-    -- ◍ tailwindcss-language-server tailwindcss
-    -- ◍ typescript-language-server ts_ls
 })
 
 -- theme
@@ -85,7 +77,6 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
 
 -- custom keymaps
 require("keymaps")
-
 
 -- text highlight
 vim.api.nvim_create_autocmd("TextYankPost", {

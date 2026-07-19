@@ -162,6 +162,7 @@ mode "resize" {
 # VISUAL SETTINGS
 # wallpaper
 exec_always --no-startup-id dash -c "feh --bg-max ~/.config/.wallpapers/italia.jpg"
+exec --no-startup-id dash -c "sleep 1 && feh --bg-max ~/.config/.wallpapers/italia.jpg"
 
 # colors
 set  $foreground     #BFBDB6

@@ -8,31 +8,30 @@ echo "Hello friend!"
 printf "The time is \e[33m%s\e[0m\n" "$(date +%T)"
 
 function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	local tmp
+    tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	command yazi "$@" --cwd-file="$tmp"
 	IFS= read -r -d '' cwd < "$tmp"
-	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd" || exit
 	command rm -f -- "$tmp"
 }
 
 export EDITOR=nvim
 export VISUAL=nvim
 
-eval "$(fzf --bash)"
-
 CONFIG="$HOME"/.config/bash
 source "$CONFIG"/bash-powerline.sh
 source "$CONFIG"/alias/bash.sh
 source "$CONFIG"/alias/git.sh
 
-alias ls='ls --color=auto'
-alias grep='grep --color=auto'
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
 
+bind "set bell-style none"
 bind "set show-all-if-ambiguous on"
 bind "set menu-complete-display-prefix on"
 
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
-bind '"^I": fzf_completion'
 bind 'TAB: menu-complete'
 bind '"\e[Z": menu-complete-backward'

@@ -7,8 +7,6 @@ map("n", "-", function()
 end)
 
 map("n", "gd",        vim.lsp.buf.definition,     { silent = true })
-map("n", "gr",        vim.lsp.buf.references,     { silent = true })
-map("n", "gi",        vim.lsp.buf.implementation, { silent = true })
 map("n", "<S-Down>",  vim.lsp.buf.hover,          { silent = true })
 map("n", "<Space>ca", vim.lsp.buf.code_action,    { silent = true })
 map("n", "<Space>cr", vim.lsp.buf.rename,         { silent = true })

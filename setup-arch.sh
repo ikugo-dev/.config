@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
+# this setup assumes that arch was installed via the `archinstall` command using:
+# REQUIRED: i3 + dmenu, ly, pipewire | OPTIONAL: networkmanager, power-profiles-deamon
+
 # fuck that beep sound
 echo "blacklist pcspkr blacklist snd_pcsp" | sudo tee /etc/modprobe.d/nobeep.conf
 
