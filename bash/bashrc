@@ -8,11 +8,18 @@ echo "Hello friend!"
 printf "The time is \e[33m%s\e[0m\n" "$(date +%T)"
 
 function y() {
-	local tmp
-    tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	command yazi "$@" --cwd-file="$tmp"
 	IFS= read -r -d '' cwd < "$tmp"
-	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd" || exit
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+	command rm -f -- "$tmp"
+}
+
+function Y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	command sudo yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
 	command rm -f -- "$tmp"
 }
 

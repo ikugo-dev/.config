@@ -15,5 +15,6 @@ rules = [
     { mime = "string", use = "zaread" },
     { mime = "image/*", use = "feh" },
     { mime = "video/*", use = "mpv" },
+    { mime = "audio/*", use = "mpv" },
     { mime = "text/*", use = "nvim" },
 ]

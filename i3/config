@@ -55,6 +55,7 @@ bindsym $mod+Shift+p exec --no-startup-id maim --select ~/Pictures/Screenshots/$
 
 # terminal
 bindsym $mod+Return exec kitty
+bindsym $mod+Shift+S exec --no-startup-id dash -c "i3-msg scratchpad show"
 
 # kill focused window
 bindsym $mod+Shift+q kill
