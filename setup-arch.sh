@@ -32,7 +32,7 @@ rm -rf yay
 # additional aur packages 
 yay stremio-linux-shell
 yay ripcord
-yay i3-swallow-git
+yay devour
 yay i3lock-color
 yay zaread-git
 

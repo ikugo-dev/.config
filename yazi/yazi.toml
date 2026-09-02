@@ -1,8 +1,8 @@
 [opener]
 vesktop = [ { run = 'vesktop %s1',  for   =   "unix" }      ]          
-feh     = [ { run = 'swallow feh    %s1', for =      "unix" } ]        
-zaread  = [ { run = 'swallow zaread %s1', for =      "unix" } ]        
-mpv     = [ { run = 'swallow mpv    %s1', for =      "unix" } ]        
+feh     = [ { run = 'devour feh    %s1', for =      "unix" } ]        
+zaread  = [ { run = 'devour zaread %s1', for =      "unix" } ]        
+mpv     = [ { run = 'devour mpv    %s1', for =      "unix" } ]        
 nvim    = [ { run = 'nvim    %s1',  block =   true,  for    = "unix" } ]
 unzip   = [ { run = 'unzip   %s1',  for   =   "unix" }      ]          
 
