@@ -3,7 +3,7 @@
 set $mod Mod4
 font pango:Iosevka Nerd Font 10
 
-# STARTUP: i3, picom, wallpaper
+# STARTUP: i3, picom, red light, bar
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id picom
 exec --no-startup-id gammastep -l 43.19:21.55 -t 6000:4000
@@ -26,7 +26,6 @@ bar {
         active_workspace    $acc  $acc  $bg
         inactive_workspace  $bg   $bg   $fg
         urgent_workspace    $fg   $fg   $fg
-        binding_mode        $fg   $fg   $fg
     }
 }
 
@@ -181,6 +180,7 @@ mode "resize" {
 # VISUAL SETTINGS
 # wallpaper
 exec --no-startup-id wal -R
+bindsym $mod+Shift+w exec --no-startup-id kitty pywal-selector
 
 # colors
 set_from_resource $fg i3wm.color7

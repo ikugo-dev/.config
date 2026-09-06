@@ -15,19 +15,6 @@ function y() {
 	command rm -f -- "$tmp"
 }
 
-function pick-image() {
-    local tmp
-    tmp=$(mktemp)
-
-    yazi --chooser-file="$tmp"
-
-    if [ -s "$tmp" ]; then
-        echo "$(head -n1 "$tmp")"
-    fi
-
-    rm -f "$tmp"
-}
-
 export EDITOR=nvim
 export VISUAL=nvim
 

@@ -14,7 +14,9 @@ vim.pack.add({
     -- ◍ gopls
     -- ◍ shellcheck
 })
-
+require("neopywal").setup({
+    notify = "none",
+})
 vim.cmd("colorscheme neopywal") -- theme
 vim.cmd("set fillchars+=stl:\\─,stlnc:\\-") -- line in statusbar
 require("indent_blanklines") -- lines for tabs
