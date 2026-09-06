@@ -20,6 +20,10 @@
       "rev": "a8fd9dadba00119f1d610936ef694515c448a47c",
       "src": "https://github.com/vieitesss/miniharp.nvim"
     },
+    "neopywal.nvim": {
+      "rev": "95425eea6411eebc17c2fcdc46d1c45e57d99205",
+      "src": "https://github.com/RedsXDD/neopywal.nvim"
+    },
     "neovim-ayu": {
       "rev": "e5a9f0fa2918d6b5f57c21b3ac014314ee5e41c8",
       "src": "https://github.com/Shatur/neovim-ayu"
@@ -35,6 +39,10 @@
     "vim-visual-star-search": {
       "rev": "7c32edb9e3c85d473d9be4dec721a4c9d5d4d69c",
       "src": "https://github.com/bronson/vim-visual-star-search"
+    },
+    "wal.vim": {
+      "rev": "c72ba0d18946f29aab9c95eb6975d321c68b3681",
+      "src": "https://github.com/dylanaraps/wal.vim"
     },
     "yazi.nvim": {
       "rev": "ce56cb1534a4192eaf13a2f8fb2c1cdfc553e5f2",

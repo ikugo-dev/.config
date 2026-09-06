@@ -2,7 +2,7 @@
 vim.pack.add({
     "https://github.com/mikavilpas/yazi.nvim", -- file explorer
     "https://github.com/nvim-lua/plenary.nvim",
-    "https://github.com/Shatur/neovim-ayu", -- theme
+    "https://github.com/RedsXDD/neopywal.nvim", -- theme
     "https://github.com/lukas-reineke/indent-blankline.nvim",
     "https://github.com/nvim-mini/mini.nvim", -- lsp
     "https://github.com/neovim/nvim-lspconfig",
@@ -15,21 +15,7 @@ vim.pack.add({
     -- ◍ shellcheck
 })
 
--- theme
-require("ayu").setup({ -- transparency
-    overrides = {
-        Normal = { bg = "None" },
-        NormalFloat = { bg = "none" },
-        ColorColumn = { bg = "None" },
-        SignColumn = { bg = "None" },
-        Folded = { bg = "None" },
-        FoldColumn = { bg = "None" },
-        CursorLine = { bg = "None" },
-        CursorColumn = { bg = "None" },
-        VertSplit = { bg = "None" },
-    },
-})
-vim.cmd("colorscheme ayu") -- actual theme
+vim.cmd("colorscheme neopywal") -- theme
 vim.cmd("set fillchars+=stl:\\─,stlnc:\\-") -- line in statusbar
 require("indent_blanklines") -- lines for tabs
 require("mini.diff").setup() -- git visuals

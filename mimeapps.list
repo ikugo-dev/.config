@@ -1,0 +1,4 @@
+
+[Default Applications]
+x-scheme-handler/harbor=harbor-handler.desktop
+x-scheme-handler/stremio=harbor-handler.desktop

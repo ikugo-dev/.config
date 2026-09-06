@@ -25,7 +25,6 @@ abbrev-alias -g cfgk="nvim ~/.config/kitty/kitty.conf"
 abbrev-alias -g cfgv="nvim ~/.config/nvim/init.lua"
 abbrev-alias -g cfgs="nvim ~/.config/setup-arch.sh"
 abbrev-alias -g cfgS="nvim ~/Code/Scripts"
-abbrev-alias -g cfgn="nvim ~/.config/nixos/"
 
 abbrev-alias -g autoremove="sudo pacman -Qdtq | sudo pacman -Rs -"
 abbrev-alias -g p2j="find -name '*.pdf' -exec pdftojpg {} \;"
