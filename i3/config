@@ -3,11 +3,32 @@
 set $mod Mod4
 font pango:Iosevka Nerd Font 10
 
-# STARTUP: i3, polybar, picom, wallpaper
+# STARTUP: i3, picom, wallpaper
 exec --no-startup-id dex --autostart --environment i3
-exec_always --no-startup-id ~/.config/polybar/launch
 exec --no-startup-id picom
 exec --no-startup-id gammastep -l 43.19:21.55 -t 6000:4000
+bar {
+    font pango:Iosevka Nerd Font Bold 11
+    # status_command i3status \
+    #         -c ~/.config/i3/i3status.conf \
+    #         | ~/.config/i3/i3status-wrapper.py
+    status_command i3blocks -c ~/.config/i3/i3blocks.conf
+    i3bar_command i3bar --transparency 
+	separator_symbol " "
+	height 28
+
+    colors {
+        background $bg
+        statusline $fg
+        separator $fg
+
+        focused_workspace   $acc  $acc  $bg
+        active_workspace    $acc  $acc  $bg
+        inactive_workspace  $bg   $bg   $fg
+        urgent_workspace    $fg   $fg   $fg
+        binding_mode        $fg   $fg   $fg
+    }
+}
 
 # change display + startup display
 bindsym $mod+m exec monitor-switch
@@ -35,8 +56,8 @@ bindsym $mod+Shift+z exec --no-startup-id reboot-prompt
 bindsym $mod+Shift+d exec dmenu-emoji
 
 # audio control
-bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%+ && polybar-msg action pipewire hook 0
-bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%- && polybar-msg action pipewire hook 0
+bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%-
 bindsym XF86AudioMute exec --no-startup-id playerctl play-pause
 bindsym XF86AudioPlay exec --no-startup-id playerctl play
 bindsym XF86AudioPause exec --no-startup-id playerctl pause

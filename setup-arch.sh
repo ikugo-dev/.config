@@ -30,11 +30,10 @@ cd .. || exit
 rm -rf yay
 
 # additional aur packages 
-yay stremio-linux-shell
-yay ripcord
 yay devour
 yay i3lock-color
 yay zaread-git
+yay harbor-stremio-bin
 
 # nix
 # sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
@@ -63,7 +62,11 @@ printf 'Section "ServerFlags"\n\tOption "BlankTime" "0"\nEndSection' \
 # relink sh to dash
 sudo ln -sfT dash /usr/bin/sh
 
+# link bash config
+sudo ln -s ~/.config/bash/bash ~/.profile
+sudo ln -s ~/.config/bash/bashrc ~/.bashrc
+
 echo "Things left to do:"
 echo " - Set up zswap https://wiki.archlinux.org/title/Zswap"
 echo " - Check if nvidia-smi & nvidia prime are set up properly"
-echo " - Check if pulseaudio is set up & if bluetoothctl is avaliable"
+echo " - Check if pipewire is set up & if bluetoothctl is avaliable"
