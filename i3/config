@@ -5,12 +5,12 @@ font pango:Iosevka Nerd Font 10
 
 # STARTUP: i3, polybar, picom, wallpaper
 exec --no-startup-id dex --autostart --environment i3
-exec_always --no-startup-id dash ~/.config/polybar/launch.sh
+exec_always --no-startup-id ~/.config/polybar/launch
 exec --no-startup-id picom
 exec --no-startup-id gammastep -l 43.19:21.55 -t 6000:4000
 # change display + startup display
-bindsym $mod+m exec dash ~/Code/Scripts/i3/monitor-switch.sh
-exec --no-startup-id dash -c "xrandr --output eDP-1 --off --output HDMI-1 --auto"
+bindsym $mod+m exec ~/Code/Scripts/i3/monitor-switch
+exec --no-startup-id xrandr --output eDP-1 --off --output HDMI-1 --auto
 
 # change keyboard
 exec_always --no-startup-id setxkbmap \
@@ -23,19 +23,19 @@ bindsym  XF86MonBrightnessUp    exec  --no-startup-id  brightnessctl  set  +5%
 bindsym  XF86MonBrightnessDown  exec  --no-startup-id  brightnessctl  set  5%-
 
 # lock the screen and dont make my screen black, hoe
-bindsym $mod+l exec dash ~/Code/Scripts/i3/lockscript.sh
-exec --no-startup-id dash -c "sleep 1 && xset s off && sleep 1 && xset -dpms && sleep 1 && xset s noblank"
+bindsym $mod+l exec ~/Code/Scripts/i3/lockscript
+exec --no-startup-id sleep 1 && xset s off && sleep 1 && xset -dpms && sleep 1 && xset s noblank
 
 # turn off pc
-bindsym $mod+Shift+x exec --no-startup-id dash ~/Code/Scripts/i3/exit-prompt.sh
-bindsym $mod+Shift+z exec --no-startup-id dash ~/Code/Scripts/i3/reboot-prompt.sh
+bindsym $mod+Shift+x exec --no-startup-id ~/Code/Scripts/i3/exit-prompt
+bindsym $mod+Shift+z exec --no-startup-id ~/Code/Scripts/i3/reboot-prompt
 
 # emoji
-bindsym $mod+Shift+d exec dash ~/Code/Scripts/i3/dmenu-emoji.sh
+bindsym $mod+Shift+d exec ~/Code/Scripts/i3/dmenu-emoji
 
 # audio control
-bindsym XF86AudioRaiseVolume exec --no-startup-id dash -c "wpctl set-volume @DEFAULT_SINK@ 5%+ && polybar-msg action pipewire hook 0"
-bindsym XF86AudioLowerVolume exec --no-startup-id dash -c "wpctl set-volume @DEFAULT_SINK@ 5%- && polybar-msg action pipewire hook 0"
+bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%+ && polybar-msg action pipewire hook 0
+bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%- && polybar-msg action pipewire hook 0
 bindsym XF86AudioMute exec --no-startup-id playerctl play-pause
 bindsym XF86AudioPlay exec --no-startup-id playerctl play
 bindsym XF86AudioPause exec --no-startup-id playerctl pause
@@ -44,9 +44,9 @@ bindsym $mod+Next exec --no-startup-id playerctl next
 bindsym $mod+Prior exec --no-startup-id playerctl previous
 
 # bluetooth control
-bindsym $mod+b exec --no-startup-id dash -c "bluetoothctl power on && bluetoothctl connect E8:9E:13:EF:42:60"
-bindsym $mod+Ctrl+b exec --no-startup-id dash -c "bluetoothctl power on && bluetoothctl connect 00:00:00:7F:FB:AA"
-bindsym $mod+Shift+b exec --no-startup-id dash -c "bluetoothctl disconnect && bluetoothctl power off"
+bindsym $mod+b exec --no-startup-id bluetoothctl power on && bluetoothctl connect E8:9E:13:EF:42:60
+bindsym $mod+Ctrl+b exec --no-startup-id bluetoothctl power on && bluetoothctl connect 00:00:00:7F:FB:AA
+bindsym $mod+Shift+b exec --no-startup-id bluetoothctl disconnect && bluetoothctl power off
 
 # screenshots
 bindsym $mod+p exec --no-startup-id maim --hidecursor ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H:%M:%S | tr A-Z a-z).png
@@ -54,13 +54,13 @@ bindsym $mod+Shift+p exec --no-startup-id maim --select ~/Pictures/Screenshots/$
 
 # terminal
 bindsym $mod+Return exec kitty
-bindsym $mod+Shift+S exec --no-startup-id dash -c "i3-msg scratchpad show"
+bindsym $mod+Shift+S exec --no-startup-id i3-msg scratchpad show
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # launch apps
-bindsym $mod+d exec --no-startup-id ~/Code/Scripts/i3/dmenu-color.sh
+bindsym $mod+d exec --no-startup-id ~/Code/Scripts/i3/dmenu-color
 
 
 # change focus
@@ -159,8 +159,7 @@ mode "resize" {
 
 # VISUAL SETTINGS
 # wallpaper
-exec_always --no-startup-id dash -c "feh --bg-max ~/.config/.wallpapers/italia.jpg"
-exec --no-startup-id dash -c "sleep 1 && feh --bg-max ~/.config/.wallpapers/italia.jpg"
+exec --no-startup-id wal -R
 
 # colors
 set_from_resource $fg i3wm.color7
