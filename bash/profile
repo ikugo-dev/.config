@@ -1,0 +1,8 @@
+SCRIPT_FOLDER=~/Code/Scripts
+
+export PATH=$PATH:$SCRIPT_FOLDER
+for d in $SCRIPT_FOLDER/*; do
+    if [[ -d $d ]];
+        then export PATH=$PATH:$d;
+    fi
+done

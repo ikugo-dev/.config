@@ -8,8 +8,9 @@ exec --no-startup-id dex --autostart --environment i3
 exec_always --no-startup-id ~/.config/polybar/launch
 exec --no-startup-id picom
 exec --no-startup-id gammastep -l 43.19:21.55 -t 6000:4000
+
 # change display + startup display
-bindsym $mod+m exec ~/Code/Scripts/i3/monitor-switch
+bindsym $mod+m exec monitor-switch
 exec --no-startup-id xrandr --output eDP-1 --off --output HDMI-1 --auto
 
 # change keyboard
@@ -23,15 +24,15 @@ bindsym  XF86MonBrightnessUp    exec  --no-startup-id  brightnessctl  set  +5%
 bindsym  XF86MonBrightnessDown  exec  --no-startup-id  brightnessctl  set  5%-
 
 # lock the screen and dont make my screen black, hoe
-bindsym $mod+l exec ~/Code/Scripts/i3/lockscript
+bindsym $mod+l exec lockscript
 exec --no-startup-id sleep 1 && xset s off && sleep 1 && xset -dpms && sleep 1 && xset s noblank
 
 # turn off pc
-bindsym $mod+Shift+x exec --no-startup-id ~/Code/Scripts/i3/exit-prompt
-bindsym $mod+Shift+z exec --no-startup-id ~/Code/Scripts/i3/reboot-prompt
+bindsym $mod+Shift+x exec --no-startup-id exit-prompt
+bindsym $mod+Shift+z exec --no-startup-id reboot-prompt
 
 # emoji
-bindsym $mod+Shift+d exec ~/Code/Scripts/i3/dmenu-emoji
+bindsym $mod+Shift+d exec dmenu-emoji
 
 # audio control
 bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%+ && polybar-msg action pipewire hook 0
@@ -60,8 +61,7 @@ bindsym $mod+Shift+S exec --no-startup-id i3-msg scratchpad show
 bindsym $mod+Shift+q kill
 
 # launch apps
-bindsym $mod+d exec --no-startup-id ~/Code/Scripts/i3/dmenu-color
-
+bindsym $mod+d exec --no-startup-id dmenu-color
 
 # change focus
 bindsym $mod+Left focus left
