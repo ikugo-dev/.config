@@ -2,16 +2,15 @@
 source "$HOME/.cache/wal/colors.sh"
 
 case "$BLOCK_BUTTON" in
-    1) pactl set-sink-mute @DEFAULT_SINK@ toggle ;;
-    4) pactl set-sink-volume @DEFAULT_SINK@ +5% ;;
-    5) pactl set-sink-volume @DEFAULT_SINK@ -5% ;;
+    1) wpctl set-mute @DEFAULT_SINK@ toggle ;;
+    4) wpctl set-volume @DEFAULT_SINK@ 5%+ ;;
+    5) wpctl set-volume @DEFAULT_SINK@ 5%- ;;
 esac
 
-MUTED=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
-VOL=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\d+%' | head -1)
+VOL=$(wpctl get-volume @DEFAULT_SINK@ | awk '{split($0,a,"."); print a[2]}')
 
-if [[ "$MUTED" == "yes" ]]; then
-    echo "󰖁 muted ($VOL)"
+if [[ $VOL = *"[MUTED"* ]]; then
+    echo "󰖁 $VOL"
 else
     echo "󰕾 $VOL"
 fi
