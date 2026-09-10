@@ -10,11 +10,11 @@
 |  Distro          |  Arch          |
 |  Package Manager |  yay           |
 |  WM+DE           |  i3            |
+|  Bar             |  i3blocks      |
 |  Compositor      |  picom         |
-|  Bar             |  polybar       |
 |  Browser         |  firefox       |
-|  Shell           |  bash          |
 |  Terminal        |  kitty         |
+|  Shell           |  bash          |
 |  IDE             |  nvim          |
 |  Image viewer    |  feh           |
 |  Video player    |  mpv           |
