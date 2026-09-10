@@ -44,7 +44,7 @@ bindsym  XF86MonBrightnessUp    exec  --no-startup-id  brightnessctl  set  +5%
 bindsym  XF86MonBrightnessDown  exec  --no-startup-id  brightnessctl  set  5%-
 
 # lock the screen and dont make my screen black, hoe
-bindsym $mod+l exec lockscript
+bindsym $mod+l exec i3lock-fancy
 exec --no-startup-id sleep 1 && xset s off && sleep 1 && xset -dpms && sleep 1 && xset s noblank
 
 # turn off pc
