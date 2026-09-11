@@ -5,6 +5,7 @@ font pango:Iosevka Nerd Font 10
 
 # STARTUP: i3, picom, red light, bar
 exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id autotiling
 exec --no-startup-id picom
 exec --no-startup-id gammastep -l 43.19:21.55 -t 6000:4000
 bar {

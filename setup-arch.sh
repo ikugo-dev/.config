@@ -11,7 +11,7 @@ sudo pacman -S \
     # system
     xorg-xrandr psmisc file man brightnessctl ddcutil playerctl bluez dash \
     # visuals
-    polybar picom bibata-cursor-theme \
+    i3blocks autotiling picom bibata-cursor-theme \
     # fonts
     ttf-liberation noto-fonts noto-fonts-cjk \
     # coding (go for yay, npm for lsp)
@@ -31,7 +31,7 @@ rm -rf yay
 
 # additional aur packages 
 yay devour
-yay i3lock-color
+yay i3lock-fancy-git
 yay zaread-git
 yay harbor-stremio-bin
 

@@ -7,12 +7,12 @@ case "$BLOCK_BUTTON" in
     5) wpctl set-volume @DEFAULT_SINK@ 5%- ;;
 esac
 
-VOL=$(wpctl get-volume @DEFAULT_SINK@ | awk '{split($0,a,"."); print a[2]}')
+VOL=$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $2 * 100}')
 
 if [[ $VOL = *"[MUTED"* ]]; then
-    echo "󰖁 $VOL"
+    echo "󰖁 $VOL%"
 else
-    echo "󰕾 $VOL"
+    echo "󰕾 $VOL%"
 fi
 echo
 echo "$color3"
