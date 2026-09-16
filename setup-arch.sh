@@ -13,7 +13,7 @@ sudo pacman -S \
     # visuals
     i3blocks autotiling picom bibata-cursor-theme \
     # fonts
-    ttf-liberation noto-fonts noto-fonts-cjk \
+    ttf-liberation noto-fonts noto-fonts-cjk noto-fonts-emoji \
     # coding (go for yay, npm for lsp)
     firefox neovim xclip git kitty go npm \
     # qol
@@ -34,6 +34,7 @@ yay devour
 yay i3lock-fancy-git
 yay zaread-git
 yay harbor-stremio-bin
+yay beeper-bin
 
 # nix
 # sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon

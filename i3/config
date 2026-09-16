@@ -35,10 +35,10 @@ bindsym $mod+m exec monitor-switch
 exec --no-startup-id xrandr --output eDP-1 --off --output HDMI-1 --auto
 
 # change keyboard
-exec_always --no-startup-id setxkbmap \
-     -layout  us,colemak-dh-arts,rs,rs \
-     -variant basic,basic,latin,basic \
-     -option  'grp:win_space_toggle',caps:backspace \
+# exec_always --no-startup-id setxkbmap \
+#      -layout  us,colemak-dh-arts,rs,rs \
+#      -variant basic,basic,latin,basic \
+#      -option  'grp:win_space_toggle',caps:backspace \
 
 # brightness
 bindsym  XF86MonBrightnessUp    exec  --no-startup-id  brightnessctl  set  +5%
