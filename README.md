@@ -1,9 +1,7 @@
 # .config
 
-<img src="./.examples/1.png" alt="example 1" width="400"/>
-<img src="./.examples/2.png" alt="example 2" width="400"/>
-<img src="./.examples/3.png" alt="example 3" width="400"/>
-<img src="./.examples/4.png" alt="example 4" width="400"/>
+<img src="./.examples/1.png" alt="example 1" width="400"/> <img src="./.examples/2.png" alt="example 2" width="400"/>
+<img src="./.examples/3.png" alt="example 3" width="400"/> <img src="./.examples/4.png" alt="example 4" width="400"/>
 
 ## Programs
 
