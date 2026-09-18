@@ -5,9 +5,9 @@ font pango:Iosevka Nerd Font 10
 
 # STARTUP: i3, picom, red light, bar
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id autotiling
+exec --no-startup-id sleep 1 & autotiling
 exec --no-startup-id picom
-exec --no-startup-id gammastep -l 43.19:21.55 -t 6000:4000
+exec --no-startup-id gammastep -l 43.19:21.55 -t 6000:3500
 bar {
     font pango:Iosevka Nerd Font Bold 11
     # status_command i3status \
@@ -35,10 +35,10 @@ bindsym $mod+m exec monitor-switch
 exec --no-startup-id xrandr --output eDP-1 --off --output HDMI-1 --auto
 
 # change keyboard
-# exec_always --no-startup-id setxkbmap \
-#      -layout  us,colemak-dh-arts,rs,rs \
-#      -variant basic,basic,latin,basic \
-#      -option  'grp:win_space_toggle',caps:backspace \
+exec_always --no-startup-id setxkbmap \
+     -layout  us,colemak-dh-arts,rs,rs \
+     -variant basic,basic,latin,basic \
+     -option  'grp:win_space_toggle',caps:backspace \
 
 # brightness
 bindsym  XF86MonBrightnessUp    exec  --no-startup-id  brightnessctl  set  +5%
@@ -56,8 +56,8 @@ bindsym $mod+Shift+z exec --no-startup-id reboot-prompt
 bindsym $mod+Shift+d exec dmenu-emoji
 
 # audio control
-bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%+ && pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%- && pkill -SIGRTMIN+10 i3blocks
 bindsym XF86AudioMute exec --no-startup-id playerctl play-pause
 bindsym XF86AudioPlay exec --no-startup-id playerctl play
 bindsym XF86AudioPause exec --no-startup-id playerctl pause
@@ -72,7 +72,8 @@ bindsym $mod+Shift+b exec --no-startup-id bluetoothctl disconnect && bluetoothct
 
 # screenshots
 bindsym $mod+p exec --no-startup-id maim --hidecursor ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H:%M:%S | tr A-Z a-z).png
-bindsym $mod+Shift+p exec --no-startup-id maim --select ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H:%M:%S | tr A-Z a-z).png
+bindsym $mod+Ctrl+p exec --no-startup-id maim --hidecursor -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym $mod+Shift+p exec --no-startup-id maim --hidecursor --select ~/Pictures/Screenshots/$(date +%Y-%m-%d-%H:%M:%S | tr A-Z a-z).png 
 
 # terminal
 bindsym $mod+Return exec kitty
@@ -195,5 +196,5 @@ client.unfocused         $bg     $bg     $fg   $bg        $bg
 client.urgent            $fg     $fg     $fg   $fg        $fg
 
 # gaps
-gaps inner 6
+gaps inner 8
 smart_gaps on

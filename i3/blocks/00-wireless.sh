@@ -10,6 +10,7 @@ then
     echo "󰖩 ${QUALITY}% at ${ESSID}"
     echo
     echo "$color1"
+    echo
     exit 0
 fi
 

@@ -1,0 +1,43 @@
+(defcfg
+  process-unmapped-keys   yes
+  concurrent-tap-hold     yes
+  allow-hardware-repeat   no
+)
+
+(defsrc
+  esc    1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab     q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps     a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft       z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl    lmet lalt           spc            ralt rmet menu rctl
+)
+
+(deflayer colemak-dh
+  esc    1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab     q    w    p    f    b    j    l    u    y    ;    [    ]    \
+  @ext     a    r    t    s    g    m    n    e    i    o    '    ret
+  lsft       x    d    c   v    z    k    h    ,    .    /    rsft
+  lctl     lmet lalt           spc            ralt rmet _    _
+)
+
+(deflayer qwerty
+  esc    1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab     q    w    e    r    t    y    u    i    o    p    [    ]    \
+  @ext     a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft       z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl     lmet lalt           spc            ralt rmet _    _
+)
+
+(deflayer nav
+  _      @lq  @lc  _    _    _    _    _    _    _    _    _    _    _
+  _       _    _    _    _    _    _    _    up    _    _    _    _    _
+  _        _    _    _    _    _    _    lft down  rght    _    _    _    
+  _          _    _    _    _    _    _    _    _    _    _    _         
+  _          _    _            ret            _    _    _    _                                     
+)
+
+(defalias
+  ext  (tap-hold 150 150 bspc (layer-toggle nav))
+  lq (layer-switch qwerty)
+  lc (layer-switch colemak-dh)
+)

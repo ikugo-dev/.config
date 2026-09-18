@@ -36,13 +36,6 @@ yay zaread-git
 yay harbor-stremio-bin
 yay beeper-bin
 
-# nix
-# sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
-# TODO check if posix version works
-mkfifo /tmp/nix_setup;
-curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install > /tmp/nix_setup
-sh /tmp/nix_setup
-
 # fonts
 sudo cp -r ./fonts ~/.local/share/fonts
 fc-cache
@@ -71,3 +64,5 @@ echo "Things left to do:"
 echo " - Set up zswap https://wiki.archlinux.org/title/Zswap"
 echo " - Check if nvidia-smi & nvidia prime are set up properly"
 echo " - Check if pipewire is set up & if bluetoothctl is avaliable"
+echo " - Run the following wifi fix script if on Lenovo IdeaPad3:"
+echo "https://github.com/isaiahtx/mt7922-mt7921-linux-wifi-fix"
