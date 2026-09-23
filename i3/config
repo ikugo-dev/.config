@@ -5,7 +5,8 @@ font pango:Iosevka Nerd Font 10
 
 # STARTUP: i3, picom, red light, bar
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id sleep 1 & autotiling
+# exec --no-startup-id sleep 1 & autotiling
+exec_always autotiling
 exec --no-startup-id picom
 exec --no-startup-id gammastep -l 43.19:21.55 -t 6000:3500
 bar {
@@ -35,10 +36,12 @@ bindsym $mod+m exec monitor-switch
 exec --no-startup-id xrandr --output eDP-1 --off --output HDMI-1 --auto
 
 # change keyboard
-exec_always --no-startup-id setxkbmap \
-     -layout  us,colemak-dh-arts,rs,rs \
-     -variant basic,basic,latin,basic \
-     -option  'grp:win_space_toggle',caps:backspace \
+# exec_always --no-startup-id setxkbmap \
+#      -layout  us,colemak-dh-arts,rs,rs \
+#      -variant basic,basic,latin,basic \
+#      -option  'grp:win_space_toggle' \
+#      -option  'caps:backspace'
+exec --no-startup-id kanata -c ~/.config/kanata/config.kbd -p 127.0.0.1:31439
 
 # brightness
 bindsym  XF86MonBrightnessUp    exec  --no-startup-id  brightnessctl  set  +5%
@@ -150,16 +153,16 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Assign workspaces to displays
-workspace $ws1  output HDMI-A-0
-workspace $ws2  output HDMI-A-0
-workspace $ws3  output HDMI-A-0
-workspace $ws4  output HDMI-A-0
-workspace $ws5  output HDMI-A-0
-workspace $ws6  output HDMI-A-0
-workspace $ws7  output HDMI-A-0
-workspace $ws8  output HDMI-A-0
-workspace $ws9  output HDMI-A-0
-workspace $ws10 output HDMI-A-0
+workspace $ws1  output HDMI-1
+workspace $ws2  output HDMI-1
+workspace $ws3  output HDMI-1
+workspace $ws4  output HDMI-1
+workspace $ws5  output HDMI-1
+workspace $ws6  output HDMI-1
+workspace $ws7  output HDMI-1
+workspace $ws8  output eDP-1
+workspace $ws9  output eDP-1
+workspace $ws10 output eDP-1
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart

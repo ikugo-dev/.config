@@ -15,17 +15,17 @@
 (deflayer colemak-dh
   esc    1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab     q    w    p    f    b    j    l    u    y    ;    [    ]    \
-  @ext     a    r    t    s    g    m    n    e    i    o    '    ret
+  bspc     a    r    t    s    g    m    n    e    i    o    '    ret
   lsft       x    d    c   v    z    k    h    ,    .    /    rsft
-  lctl     lmet lalt           spc            ralt rmet _    _
+  lctl     lmet @lext           spc            @rext rmet _    _
 )
 
 (deflayer qwerty
   esc    1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab     q    w    e    r    t    y    u    i    o    p    [    ]    \
-  @ext     a    s    d    f    g    h    j    k    l    ;    '    ret
+  bspc     a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft       z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl     lmet lalt           spc            ralt rmet _    _
+  lctl     lmet @lext           spc            @rext rmet _    _
 )
 
 (deflayer nav
@@ -37,7 +37,8 @@
 )
 
 (defalias
-  ext  (tap-hold 150 150 bspc (layer-toggle nav))
+  lext (tap-hold 150 150 lalt (layer-toggle nav))
+  rext (tap-hold 150 150 ralt (layer-toggle nav))
   lq (layer-switch qwerty)
   lc (layer-switch colemak-dh)
 )
