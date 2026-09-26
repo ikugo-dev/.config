@@ -2,12 +2,10 @@
 source "$HOME/.cache/wal/colors.sh"
 
 MONITOR_STATE=$(detect-monitor)
-if [ "$MONITOR_STATE" = "PRIMARY" ] || [ "$MONITOR_STATE" = "NONE" ]; then
+if [ "$MONITOR_STATE" = "SECONDARY" ] || [ "$MONITOR_STATE" = "NONE" ]; then
     VALUE=0
 else
-    VALUE=$(ddcutil getvcp 10 2>/dev/null \
-        | awk -F'=' '/current value/ {print $2}'\
-        | awk -F',' '{print $1}' | xargs) || "0"
+    VALUE=$(brightnessctl | grep -o "(.*" | tr -d "()")
 fi
 
 if [ "$VALUE" -lt 30 ]; then

@@ -36,6 +36,11 @@ bindsym $mod+m exec monitor-switch
 exec --no-startup-id xrandr --output eDP-1 --off --output HDMI-1 --auto
 
 # change keyboard
+exec_always --no-startup-id setxkbmap \
+     -layout  us,rs,rs \
+     -variant basic,latin,basic \
+     -option  'grp:win_space_toggle' \
+     -option  'caps:backspace'
 # exec_always --no-startup-id setxkbmap \
 #      -layout  us,colemak-dh-arts,rs,rs \
 #      -variant basic,basic,latin,basic \
@@ -160,9 +165,9 @@ workspace $ws4  output HDMI-1
 workspace $ws5  output HDMI-1
 workspace $ws6  output HDMI-1
 workspace $ws7  output HDMI-1
-workspace $ws8  output eDP-1
-workspace $ws9  output eDP-1
-workspace $ws10 output eDP-1
+workspace $ws8  output HDMI-1
+workspace $ws9  output HDMI-1
+workspace $ws10 output HDMI-1
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart

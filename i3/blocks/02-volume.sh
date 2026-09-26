@@ -10,9 +10,15 @@ esac
 VOL=$(wpctl get-volume @DEFAULT_SINK@ | awk '{print $2 * 100}')
 
 if [[ $VOL = *"[MUTED"* ]]; then
-    echo "󰖁 $VOL%"
+    ICON="󰖁"
+elif [[ "$VOL" -lt 30 ]]; then
+    ICON=""
+elif [[ "$VOL" -lt 70 ]]; then
+    ICON=""
 else
-    echo "󰕾 $VOL%"
+    ICON=""
 fi
+
+echo "$ICON $VOL%"
 echo
 echo "$color3"
